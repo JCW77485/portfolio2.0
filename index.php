@@ -108,7 +108,7 @@
             border-color: #0057ff;
         }
 
-        /* MagicUI Spotlight Effect for Project Cards */
+        /* MagicUI Spotlight Effect */
         .magic-card {
             position: relative;
             background: white;
@@ -235,10 +235,36 @@
                     <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Core_Discipline</p>
                     <p class="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter mt-4"><?php echo htmlspecialchars($data['title']); ?></p>
                 </div>
+
+                <div class="bento-card lg:col-span-3 reveal">
+                    <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Experience</p>
+                    <div class="mt-4 space-y-6">
+                        <?php foreach ($data['experience'] as $item): ?>
+                        <div class="border-l-2 border-brand_blue/20 pl-4">
+                            <p class="text-sm font-bold text-brand_blue"><?php echo htmlspecialchars($item['period']); ?></p>
+                            <p class="font-bold"><?php echo htmlspecialchars($item['company']); ?></p>
+                            <p class="text-sm opacity-60"><?php echo htmlspecialchars($item['role']); ?></p>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <div class="bento-card lg:col-span-3 reveal">
+                    <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Education</p>
+                    <div class="mt-4 space-y-6">
+                        <?php foreach ($data['education'] as $item): ?>
+                        <div class="border-l-2 border-brand_black/10 pl-4">
+                            <p class="text-sm font-bold opacity-40"><?php echo htmlspecialchars($item['period']); ?></p>
+                            <p class="font-bold"><?php echo htmlspecialchars($item['degree']); ?></p>
+                            <p class="text-sm opacity-60"><?php echo htmlspecialchars($item['institution']); ?></p>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Projects - MagicUI Grid -->
+        <!-- Projects -->
         <section id="work" class="space-y-12 md:space-y-24">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8 reveal">
                 <div class="space-y-2 md:space-y-4">
@@ -290,7 +316,6 @@
     </main>
 
     <script>
-        // Spotlight Effect Logic
         document.querySelectorAll('.magic-card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();

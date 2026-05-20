@@ -52,18 +52,18 @@ $data = [
             'full_description' => "This campaign was a complete overhaul of Acco's visual presence. We focused on high-contrast colors and bold typography to create a sense of urgency and modernity. The scope included social media assets, print advertisements, and a landing page redesign. Over the course of 6 months, we saw a 40% increase in brand engagement across all digital channels. This project demonstrated our ability to scale creative concepts globally while maintaining a cohesive brand voice.",
             'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=2400&height=1600',
             'gallery' => [
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg'
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-2 sm:row-span-2'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-2'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-2 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1']
             ]
         ],
         [
@@ -73,18 +73,18 @@ $data = [
             'full_description' => "Luna Direction was about finding the 'soul' of the brand. We moved away from generic aesthetics toward a more artisanal, grounded visual language. This involved custom illustration sets, a new color palette inspired by twilight, and a comprehensive brand book. The new direction helped Luna secure partnerships with three major boutique retailers within the first quarter of implementation.",
             'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=2400&height=2400',
             'gallery' => [
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
-                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg'
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-2 sm:row-span-2'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-2'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-2 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1']
             ]
         ]
     ],
@@ -97,15 +97,29 @@ $data = [
     ]
 ];
 
-// Seed remaining projects with similar structure for testing
+// Seed remaining projects
 for ($i = 1; $i <= 10; $i++) {
+    $img = ($i % 2 == 0) ? 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg' : 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg';
     $data['projects'][] = [
         'id' => "project-$i",
         'title' => "Advanced Operation $i",
         'description' => "A high-performance design case study focusing on technical excellence and visual strategy.",
         'full_description' => "This project represents the $i-th iteration of our advanced design framework. We explored the boundaries of modern UI components and branding systems. Key features include accessibility-first design, high-density information layouts, and a custom iconographic language. The project was delivered ahead of schedule and received unanimous approval from the stakeholder committee.",
-        'image' => ($i % 2 == 0) ? 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg' : 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
-        'gallery' => array_fill(0, 12, ($i % 2 == 0) ? 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg' : 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg')
+        'image' => $img,
+        'gallery' => [
+            ['url' => $img, 'span' => 'sm:col-span-2 sm:row-span-2'],
+            ['url' => $img, 'span' => 'sm:col-span-1 sm:row-span-1'],
+            ['url' => $img, 'span' => 'sm:col-span-1 sm:row-span-1'],
+            ['url' => $img, 'span' => 'sm:col-span-1 sm:row-span-1'],
+            ['url' => $img, 'span' => 'sm:col-span-1 sm:row-span-2'],
+            ['url' => $img, 'span' => 'sm:col-span-2 sm:row-span-1'],
+            ['url' => $img, 'span' => 'sm:col-span-1 sm:row-span-1'],
+            ['url' => $img, 'span' => 'sm:col-span-1 sm:row-span-1'],
+            ['url' => $img, 'span' => 'sm:col-span-1 sm:row-span-1'],
+            ['url' => $img, 'span' => 'sm:col-span-1 sm:row-span-1'],
+            ['url' => $img, 'span' => 'sm:col-span-1 sm:row-span-1'],
+            ['url' => $img, 'span' => 'sm:col-span-1 sm:row-span-1']
+        ]
     ];
 }
 ?>
