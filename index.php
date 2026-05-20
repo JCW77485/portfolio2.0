@@ -126,6 +126,33 @@
             border-color: #0057ff;
         }
 
+        /* Redesigned Floating Header */
+        .header-floating {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            width: fit-content;
+            background: rgba(245, 241, 230, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 9999px;
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .header-floating {
+                top: 1rem;
+                gap: 1rem;
+                padding: 0.4rem 0.4rem 0.4rem 1rem;
+            }
+        }
+
         @media (min-width: 1024px) {
             .text-huge {
                 font-size: 10vw;
@@ -137,13 +164,13 @@
 </head>
 <body class="selection:bg-brand_blue selection:text-white">
 
-    <header class="fixed top-0 left-0 w-full z-50 px-4 md:px-6 py-6 md:py-8 flex justify-between items-center bg-brand_paper/90 backdrop-blur-md border-b border-black/5">
-        <div class="text-lg md:text-xl font-bold tracking-tighter">PORTFOLIO.25</div>
-        <div class="flex gap-4 md:gap-8 text-[10px] md:text-sm font-bold uppercase tracking-widest">
-            <a href="#work" class="hover:text-brand_blue transition-colors">Work</a>
-            <a href="#about" class="hover:text-brand_blue transition-colors">About</a>
-            <a href="#contact" class="hover:text-brand_blue transition-colors">Contact</a>
-        </div>
+    <header class="header-floating">
+        <div class="text-sm font-bold tracking-tighter uppercase whitespace-nowrap">Portfolio<span class="text-brand_blue">.25</span></div>
+        <nav class="flex items-center gap-1">
+            <a href="#work" class="px-4 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-brand_blue hover:bg-black/5 rounded-full transition-all">Work</a>
+            <a href="#about" class="px-4 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-brand_blue hover:bg-black/5 rounded-full transition-all">About</a>
+            <a href="#contact" class="px-6 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest bg-brand_black text-white rounded-full hover:bg-brand_blue transition-all">Contact</a>
+        </nav>
     </header>
 
     <main class="max-w-[1600px] mx-auto px-4 md:px-6 lg:px-12 pt-32 md:pt-48 pb-12 md:pb-24 space-y-24 md:space-y-48">
@@ -186,7 +213,6 @@
                         <span class="font-bold uppercase tracking-widest text-sm"><?php echo htmlspecialchars($skill['category']); ?></span>
                     </div>
                     <?php endforeach; ?>
-                    <!-- Duplicate for infinite loop -->
                     <?php foreach ($data['skills'] as $skill): ?>
                     <div class="flex items-center gap-4 px-8 py-4 bg-white/40 rounded-full border border-black/5">
                         <span class="text-brand_blue font-bold text-lg">•</span>
@@ -202,7 +228,6 @@
             <h2 class="text-3xl md:text-6xl font-bold tracking-tighter">Bio <span class="text-brand_blue">Matrix.</span></h2>
 
             <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <!-- Location -->
                 <div class="bento-card md:col-span-2 lg:col-span-2 aspect-square md:aspect-auto">
                     <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Base_Location</p>
                     <div class="space-y-2">
@@ -211,7 +236,6 @@
                     </div>
                 </div>
 
-                <!-- Core expertise (Main Bento Card) -->
                 <div class="bento-card md:col-span-2 lg:col-span-4 bg-brand_black text-brand_paper">
                     <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Core_Discipline</p>
                     <div class="space-y-4">
@@ -220,7 +244,6 @@
                     </div>
                 </div>
 
-                <!-- Small Stats -->
                 <div class="bento-card lg:col-span-3">
                     <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Track_Record</p>
                     <div class="flex items-end justify-between">
@@ -239,7 +262,7 @@
             </div>
         </section>
 
-        <!-- Projects Grid -->
+        <!-- Projects - Optimized Grid -->
         <section id="work" class="space-y-12 md:space-y-24 reveal">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8">
                 <div class="space-y-2 md:space-y-4">

@@ -40,17 +40,47 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Redesigned Floating Header */
+        .header-floating {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            width: fit-content;
+            background: rgba(245, 241, 230, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 9999px;
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .header-floating {
+                top: 1rem;
+                gap: 1rem;
+                padding: 0.4rem 0.4rem 0.4rem 1rem;
+            }
+        }
     </style>
 </head>
 <body class="selection:bg-brand_blue selection:text-white">
 
-    <header class="fixed top-0 left-0 w-full z-50 px-4 md:px-6 py-6 md:py-8 flex justify-between items-center bg-brand_paper/90 backdrop-blur-md border-b border-black/5">
-        <a href="index.html" class="text-sm md:text-xl font-bold tracking-tighter flex items-center gap-2 group">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
-            BACK_TO_HOME
+    <header class="header-floating">
+        <a href="index.html" class="text-sm font-bold tracking-tighter uppercase whitespace-nowrap flex items-center gap-2 group">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
+            BACK_HOME
         </a>
-        <div class="text-[10px] md:text-sm font-bold uppercase tracking-[0.2em] opacity-40 hidden sm:block">
+        <div class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] opacity-40 pr-4 border-r border-black/5 hidden sm:block">
             Project // project-2        </div>
+        <nav class="flex items-center gap-1">
+            <a href="mailto:yaugiakkian@gmail.com" class="px-6 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest bg-brand_black text-white rounded-full hover:bg-brand_blue transition-all">Connect</a>
+        </nav>
     </header>
 
     <main class="max-w-[1600px] mx-auto px-4 md:px-6 lg:px-12 pt-32 md:pt-48 pb-12 md:pb-24 space-y-16 md:space-y-32">
