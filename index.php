@@ -23,11 +23,16 @@
                     },
                     animation: {
                         marquee: "marquee var(--duration) linear infinite",
+                        shimmer: "shimmer 2s linear infinite",
                     },
                     keyframes: {
                         marquee: {
                             from: { transform: "translateX(0)" },
                             to: { transform: "translateX(calc(-100% - var(--gap)))" },
+                        },
+                        shimmer: {
+                            from: { backgroundPosition: "0 0" },
+                            to: { backgroundPosition: "-200% 0" },
                         }
                     }
                 }
@@ -66,26 +71,7 @@
             transform: scale(1.05);
         }
 
-        .btn-blue {
-            background: #0057ff;
-            color: white;
-            padding: 1rem 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.75rem;
-        }
-
-        .btn-blue:hover {
-            background: #0044cc;
-            transform: translateY(-1px);
-        }
-
-        /* MagicUI Marquee Adaptation */
+        /* MagicUI Marquee */
         .marquee-container {
             --gap: 2rem;
             --duration: 40s;
@@ -106,35 +92,56 @@
             animation: marquee var(--duration) linear infinite;
         }
 
-        .marquee-container:hover .marquee-content {
-            animation-play-state: paused;
-        }
-
-        /* Bento Grid Specifics */
+        /* MagicUI Bento Card */
         .bento-card {
             background: white;
             border: 1px solid rgba(0,0,0,0.05);
             padding: 2.5rem;
-            border-radius: 0.5rem;
+            border-radius: 1rem;
             transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
         }
 
         .bento-card:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
             border-color: #0057ff;
         }
 
-        /* Redesigned Floating Header */
+        /* MagicUI Spotlight Effect for Project Cards */
+        .magic-card {
+            position: relative;
+            background: white;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .magic-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .magic-spotlight {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            background: radial-gradient(400px circle at var(--x) var(--y), rgba(0, 87, 255, 0.05), transparent 80%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .magic-card:hover .magic-spotlight {
+            opacity: 1;
+        }
+
         .header-floating {
             position: fixed;
             top: 1.5rem;
             left: 50%;
             transform: translateX(-50%);
             z-index: 100;
-            width: fit-content;
             background: rgba(245, 241, 230, 0.7);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(0, 0, 0, 0.08);
@@ -147,19 +154,11 @@
         }
 
         @media (max-width: 768px) {
-            .header-floating {
-                top: 1rem;
-                gap: 1rem;
-                padding: 0.4rem 0.4rem 0.4rem 1rem;
-            }
+            .header-floating { top: 1rem; gap: 1rem; padding: 0.4rem 0.4rem 0.4rem 1rem; }
         }
 
         @media (min-width: 1024px) {
-            .text-huge {
-                font-size: 10vw;
-                line-height: 0.85;
-                letter-spacing: -0.04em;
-            }
+            .text-huge { font-size: 10vw; line-height: 0.85; letter-spacing: -0.04em; }
         }
     </style>
 </head>
@@ -176,7 +175,7 @@
 
     <main class="max-w-[1600px] mx-auto px-4 md:px-6 lg:px-12 pt-32 md:pt-48 pb-12 md:pb-24 space-y-24 md:space-y-48">
 
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section class="space-y-8 md:space-y-12">
             <div class="space-y-4 reveal active">
                 <h2 class="text-brand_blue font-bold tracking-widest uppercase text-[10px] md:text-sm">SUBJECT_01 // <?php echo htmlspecialchars($data['title']); ?></h2>
@@ -196,15 +195,15 @@
                         <?php echo htmlspecialchars($data['about']); ?>
                     </p>
                     <div class="pt-2 md:pt-4">
-                        <a href="#contact" class="btn-blue w-full md:w-auto justify-center">
-                            Connect Now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+                        <a href="#contact" class="inline-flex items-center gap-4 text-brand_blue font-bold group">
+                            SCROLL_FOR_INTEL <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="animate-bounce"><path d="m7 13 5 5 5-5"/><path d="M12 18V6"/></svg>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MagicUI: Infinite Marquee Skills -->
+        <!-- Marquee -->
         <section class="py-12 border-y border-black/5 reveal">
             <div class="marquee-container">
                 <div class="marquee-content">
@@ -224,72 +223,45 @@
             </div>
         </section>
 
-        <!-- MagicUI: Bento Grid Experience/Info -->
+        <!-- Bento -->
         <section id="about" class="space-y-12 md:space-y-24">
             <h2 class="text-3xl md:text-6xl font-bold tracking-tighter reveal">Bio <span class="text-brand_blue">Matrix.</span></h2>
-
             <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <div class="bento-card md:col-span-2 lg:col-span-2 aspect-square md:aspect-auto reveal">
+                <div class="bento-card md:col-span-2 lg:col-span-2 reveal">
                     <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Base_Location</p>
-                    <div class="space-y-2">
-                        <p class="text-3xl font-bold"><?php echo htmlspecialchars($data['contact']['location']); ?></p>
-                        <p class="text-sm font-medium opacity-50 italic">Available for Global Remote Work</p>
-                    </div>
+                    <p class="text-3xl font-bold mt-4"><?php echo htmlspecialchars($data['contact']['location']); ?></p>
                 </div>
-
                 <div class="bento-card md:col-span-2 lg:col-span-4 bg-brand_black text-brand_paper reveal">
                     <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Core_Discipline</p>
-                    <div class="space-y-4">
-                        <p class="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter"><?php echo htmlspecialchars($data['title']); ?></p>
-                        <p class="text-lg md:text-xl opacity-60 max-w-xl">Transforming complex business objectives into high-impact visual narratives since 2022.</p>
-                    </div>
-                </div>
-
-                <div class="bento-card lg:col-span-3 reveal">
-                    <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Track_Record</p>
-                    <div class="flex items-end justify-between">
-                        <span class="text-6xl font-bold text-brand_blue">03+</span>
-                        <span class="text-lg font-bold opacity-40 uppercase">Years Experience</span>
-                    </div>
-                </div>
-
-                <div class="bento-card lg:col-span-3 reveal">
-                    <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Project_Stream</p>
-                    <div class="flex items-end justify-between">
-                        <span class="text-6xl font-bold text-brand_blue"><?php echo count($data['projects']); ?>+</span>
-                        <span class="text-lg font-bold opacity-40 uppercase">Case Studies</span>
-                    </div>
+                    <p class="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter mt-4"><?php echo htmlspecialchars($data['title']); ?></p>
                 </div>
             </div>
         </section>
 
-        <!-- Projects - Optimized Grid -->
+        <!-- Projects - MagicUI Grid -->
         <section id="work" class="space-y-12 md:space-y-24">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8 reveal">
                 <div class="space-y-2 md:space-y-4">
                     <h2 class="text-4xl md:text-8xl font-bold tracking-tighter leading-none">Project <br>Spotlight.</h2>
-                    <p class="text-sm md:text-xl font-bold opacity-40 uppercase tracking-widest">Selected Works // 2025</p>
+                    <p class="text-sm md:text-xl font-bold opacity-40 uppercase tracking-widest">Neural Stream // 2025</p>
                 </div>
-                <p class="text-base md:text-xl font-bold max-w-xs opacity-40 hidden md:block">A deep dive into visual communication and design strategy across various industries.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <?php foreach ($data['projects'] as $index => $project): ?>
-                <a href="<?php echo htmlspecialchars($project['id']); ?>.html" class="space-y-4 md:space-y-8 group cursor-pointer block reveal">
-                    <div class="img-container aspect-[3/4] rounded-sm">
+                <a href="<?php echo htmlspecialchars($project['id']); ?>.html" class="magic-card group reveal block">
+                    <div class="magic-spotlight"></div>
+                    <div class="img-container aspect-[3/4]">
                         <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Project" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/5 transition-colors duration-500"></div>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex">
-                            <span class="bg-brand_blue text-white px-6 py-3 rounded-full font-bold text-sm tracking-widest">VIEW_DETAIL</span>
-                        </div>
+                        <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
+                        <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_<?php echo sprintf("%02d", $index + 1); ?></div>
                     </div>
-                    <div class="space-y-2 md:space-y-4">
-                        <div class="flex items-center gap-4">
-                            <span class="text-[8px] md:text-[10px] font-bold text-brand_blue tracking-[0.2em] uppercase">NO.<?php echo sprintf("%02d", $index + 1); ?></span>
-                            <div class="h-[1px] flex-grow bg-brand_black/10"></div>
+                    <div class="p-8 space-y-4">
+                        <h3 class="text-2xl font-bold group-hover:text-brand_blue transition-colors"><?php echo htmlspecialchars($project['title']); ?></h3>
+                        <p class="text-sm text-brand_black/50 font-medium leading-snug line-clamp-2"><?php echo htmlspecialchars($project['description']); ?></p>
+                        <div class="pt-4 flex items-center gap-2 text-[10px] font-bold text-brand_blue uppercase tracking-[0.2em]">
+                            Open_Case_Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m9 18 6-6-6-6"/></svg>
                         </div>
-                        <h3 class="text-xl md:text-3xl font-bold group-hover:text-brand_blue transition-colors"><?php echo htmlspecialchars($project['title']); ?></h3>
-                        <p class="text-sm md:text-lg text-brand_black/50 font-medium leading-snug line-clamp-2 md:line-clamp-3"><?php echo htmlspecialchars($project['description']); ?></p>
                     </div>
                 </a>
                 <?php endforeach; ?>
@@ -298,45 +270,44 @@
 
         <!-- Footer -->
         <footer id="contact" class="pt-24 md:pt-48 pb-8 md:pb-12 reveal">
-            <div class="bg-brand_black text-brand_paper p-8 md:p-24 rounded-sm space-y-12 md:space-y-16">
-                <div class="space-y-4 md:space-y-6">
-                    <h2 class="text-3xl md:text-8xl font-bold tracking-tighter leading-tight md:leading-none">Ready to start <br>the conversation?</h2>
-                    <p class="text-base md:text-2xl font-medium opacity-60">I'm currently accepting new projects and collaborations.</p>
+            <div class="bg-brand_black text-brand_paper p-8 md:p-24 rounded-[2rem] space-y-12 md:space-y-16 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand_blue/20 blur-[120px] rounded-full"></div>
+                <div class="space-y-4 md:space-y-6 relative z-10">
+                    <h2 class="text-3xl md:text-8xl font-bold tracking-tighter leading-tight md:leading-none uppercase italic">Let's Connect.</h2>
+                    <p class="text-base md:text-2xl font-medium opacity-60">Neural protocols active for new collaborations.</p>
                 </div>
-
-                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 md:gap-12">
-                    <a href="mailto:<?php echo htmlspecialchars($data['contact']['email']); ?>" class="text-xl md:text-5xl font-bold hover:text-brand_blue transition-colors border-b-2 md:border-b-4 border-brand_blue pb-1 md:pb-2 break-all max-w-full">
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 md:gap-12 relative z-10">
+                    <a href="mailto:<?php echo htmlspecialchars($data['contact']['email']); ?>" class="text-xl md:text-5xl font-bold hover:text-brand_blue transition-colors border-b-2 md:border-b-4 border-brand_blue pb-1 md:pb-2 break-all">
                         <?php echo htmlspecialchars($data['contact']['email']); ?>
                     </a>
-
-                    <div class="flex flex-row flex-wrap gap-6 md:gap-8 text-[10px] md:text-lg font-bold uppercase tracking-widest">
-                        <a href="<?php echo htmlspecialchars($data['contact']['instagram']); ?>" class="hover:text-brand_blue transition-colors">Instagram</a>
-                        <a href="<?php echo htmlspecialchars($data['contact']['linkedin']); ?>" class="hover:text-brand_blue transition-colors">LinkedIn</a>
-                    </div>
                 </div>
             </div>
-
-            <div class="mt-12 md:mt-24 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 text-[8px] md:text-xs font-bold uppercase tracking-widest opacity-30 text-center">
-                <p>© 2025 <?php echo htmlspecialchars($data['name']); ?> // ALL RIGHTS RESERVED</p>
-                <div class="flex gap-6 md:gap-12">
-                    <span class="cursor-pointer hover:text-brand_blue transition-colors" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to Top ↑</span>
-                    <span>Built with Precision</span>
-                </div>
+            <div class="mt-12 md:mt-24 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest opacity-30">
+                <p>© 2025 <?php echo htmlspecialchars($data['name']); ?></p>
+                <p>Designed with Magic</p>
             </div>
         </footer>
     </main>
 
     <script>
+        // Spotlight Effect Logic
+        document.querySelectorAll('.magic-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+        });
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, {
-            threshold: 0.05,
-            rootMargin: '50px'
-        });
+        }, { threshold: 0.05, rootMargin: '50px' });
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     </script>
