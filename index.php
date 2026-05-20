@@ -20,6 +20,15 @@
                         brand_paper: '#F5F1E6',
                         brand_black: '#191919',
                         brand_blue: '#0057ff',
+                    },
+                    animation: {
+                        marquee: "marquee var(--duration) linear infinite",
+                    },
+                    keyframes: {
+                        marquee: {
+                            from: { transform: "translateX(0)" },
+                            to: { transform: "translateX(calc(-100% - var(--gap)))" },
+                        }
                     }
                 }
             }
@@ -76,15 +85,52 @@
             transform: translateY(-1px);
         }
 
+        /* MagicUI Marquee Adaptation */
+        .marquee-container {
+            --gap: 2rem;
+            --duration: 40s;
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            gap: var(--gap);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-content {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-around;
+            min-width: 100%;
+            gap: var(--gap);
+            animation: marquee var(--duration) linear infinite;
+        }
+
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Bento Grid Specifics */
+        .bento-card {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 2.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bento-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            border-color: #0057ff;
+        }
+
         @media (min-width: 1024px) {
             .text-huge {
                 font-size: 10vw;
                 line-height: 0.85;
                 letter-spacing: -0.04em;
-            }
-            .btn-blue {
-                padding: 1rem 2rem;
-                font-size: 0.875rem;
             }
         }
     </style>
@@ -130,48 +176,70 @@
             </div>
         </section>
 
-        <!-- Stats / Info Bar -->
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 py-12 md:py-24 border-y border-brand_black/10 reveal">
-            <div class="space-y-1 md:space-y-2">
-                <p class="text-[10px] font-bold uppercase opacity-40">Status</p>
-                <p class="text-lg md:text-xl font-bold italic">Available for Projects</p>
-            </div>
-            <div class="space-y-1 md:space-y-2">
-                <p class="text-[10px] font-bold uppercase opacity-40">Location</p>
-                <p class="text-lg md:text-xl font-bold"><?php echo htmlspecialchars($data['contact']['location']); ?></p>
-            </div>
-            <div class="space-y-1 md:space-y-2">
-                <p class="text-[10px] font-bold uppercase opacity-40">Experience</p>
-                <p class="text-lg md:text-xl font-bold">3+ Years Professional</p>
-            </div>
-            <div class="space-y-1 md:space-y-2">
-                <p class="text-[10px] font-bold uppercase opacity-40">Expertise</p>
-                <p class="text-lg md:text-xl font-bold"><?php echo htmlspecialchars($data['title']); ?></p>
-            </div>
-        </section>
-
-        <!-- Experience -->
-        <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 reveal">
-            <div class="lg:col-span-4">
-                <h2 class="text-3xl md:text-4xl font-bold lg:sticky lg:top-32">Experience <br><span class="text-brand_blue">Archives.</span></h2>
-            </div>
-            <div class="lg:col-span-8 space-y-16 md:space-y-24">
-                <?php foreach ($data['experience'] as $item): ?>
-                <div class="space-y-6 md:space-y-8 border-b border-brand_black/5 pb-12 md:pb-16 last:border-0 group">
-                    <div class="flex flex-col md:flex-row justify-between gap-2 md:gap-4">
-                        <h3 class="text-2xl md:text-5xl font-bold group-hover:text-brand_blue transition-colors"><?php echo htmlspecialchars($item['company']); ?></h3>
-                        <span class="text-sm md:text-xl font-bold opacity-30"><?php echo htmlspecialchars($item['period']); ?></span>
+        <!-- MagicUI: Infinite Marquee Skills -->
+        <section class="py-12 border-y border-black/5 reveal">
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <?php foreach ($data['skills'] as $skill): ?>
+                    <div class="flex items-center gap-4 px-8 py-4 bg-white/40 rounded-full border border-black/5">
+                        <span class="text-brand_blue font-bold text-lg">•</span>
+                        <span class="font-bold uppercase tracking-widest text-sm"><?php echo htmlspecialchars($skill['category']); ?></span>
                     </div>
-                    <p class="text-lg md:text-2xl font-bold text-brand_blue/60"><?php echo htmlspecialchars($item['role']); ?></p>
-                    <p class="text-base md:text-2xl text-brand_black/60 font-medium leading-relaxed max-w-3xl whitespace-pre-line">
-                        <?php echo htmlspecialchars($item['description']); ?>
-                    </p>
+                    <?php endforeach; ?>
+                    <!-- Duplicate for infinite loop -->
+                    <?php foreach ($data['skills'] as $skill): ?>
+                    <div class="flex items-center gap-4 px-8 py-4 bg-white/40 rounded-full border border-black/5">
+                        <span class="text-brand_blue font-bold text-lg">•</span>
+                        <span class="font-bold uppercase tracking-widest text-sm"><?php echo htmlspecialchars($skill['category']); ?></span>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
             </div>
         </section>
 
-        <!-- Projects - Optimized Grid -->
+        <!-- MagicUI: Bento Grid Experience/Info -->
+        <section id="about" class="space-y-12 md:space-y-24 reveal">
+            <h2 class="text-3xl md:text-6xl font-bold tracking-tighter">Bio <span class="text-brand_blue">Matrix.</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Location -->
+                <div class="bento-card md:col-span-2 lg:col-span-2 aspect-square md:aspect-auto">
+                    <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Base_Location</p>
+                    <div class="space-y-2">
+                        <p class="text-3xl font-bold"><?php echo htmlspecialchars($data['contact']['location']); ?></p>
+                        <p class="text-sm font-medium opacity-50 italic">Available for Global Remote Work</p>
+                    </div>
+                </div>
+
+                <!-- Core expertise (Main Bento Card) -->
+                <div class="bento-card md:col-span-2 lg:col-span-4 bg-brand_black text-brand_paper">
+                    <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Core_Discipline</p>
+                    <div class="space-y-4">
+                        <p class="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter"><?php echo htmlspecialchars($data['title']); ?></p>
+                        <p class="text-lg md:text-xl opacity-60 max-w-xl">Transforming complex business objectives into high-impact visual narratives since 2022.</p>
+                    </div>
+                </div>
+
+                <!-- Small Stats -->
+                <div class="bento-card lg:col-span-3">
+                    <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Track_Record</p>
+                    <div class="flex items-end justify-between">
+                        <span class="text-6xl font-bold text-brand_blue">03+</span>
+                        <span class="text-lg font-bold opacity-40 uppercase">Years Experience</span>
+                    </div>
+                </div>
+
+                <div class="bento-card lg:col-span-3">
+                    <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Project_Stream</p>
+                    <div class="flex items-end justify-between">
+                        <span class="text-6xl font-bold text-brand_blue"><?php echo count($data['projects']); ?>+</span>
+                        <span class="text-lg font-bold opacity-40 uppercase">Case Studies</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
         <section id="work" class="space-y-12 md:space-y-24 reveal">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8">
                 <div class="space-y-2 md:space-y-4">
