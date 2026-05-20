@@ -3,101 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YAU GIAK KIAN | Portfolio</title>
+    <title>YAU GIAK KIAN | NEURAL_LINK_v1.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['DM Sans', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        muted: '#666',
-                        accent: '#f5f5f5',
+                        cyber_black: '#050505',
+                        cyber_cyan: '#00f3ff',
+                        cyber_magenta: '#ff00ff',
+                        cyber_yellow: '#fcee0a',
+                        cyber_gray: '#1a1a1a',
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 10px #00f3ff, 0 0 20px #00f3ff',
+                        'neon-magenta': '0 0 10px #ff00ff, 0 0 20px #ff00ff',
                     }
                 }
             }
         }
     </script>
     <style>
+        :root {
+            --cyan: #00f3ff;
+            --magenta: #ff00ff;
+            --yellow: #fcee0a;
+        }
+
+        body {
+            background-color: #050505;
+            color: #fff;
+            overflow-x: hidden;
+            background-image:
+                linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.1) 50%
+            );
+            background-size: 100% 4px;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .glitch-text {
+            position: relative;
+            text-shadow: 2px 2px var(--cyan), -2px -2px var(--magenta);
+        }
+
+        .cyber-border {
+            border: 1px solid var(--cyan);
+            position: relative;
+            clip-path: polygon(0 0, 95% 0, 100% 15%, 100% 100%, 5% 100%, 0 85%);
+            background: rgba(0, 243, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .cyber-border:hover {
+            background: rgba(0, 243, 255, 0.08);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        }
+
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
+        }
+
+        .btn-cyber {
+            background: transparent;
+            border: 1px solid var(--yellow);
+            color: var(--yellow);
+            padding: 1rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .btn-cyber:hover {
+            background: var(--yellow);
+            color: black;
+            box-shadow: 0 0 20px var(--yellow);
+        }
+
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 99;
         }
     </style>
 </head>
-<body class="bg-white text-[#111] font-sans selection:bg-black selection:text-white">
-    <main class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-12 lg:py-24 space-y-32 lg:space-y-48 overflow-x-hidden">
+<body class="font-mono selection:bg-cyber_cyan selection:text-black">
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <main class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-12 lg:py-24 space-y-32 lg:space-y-48">
+
+        <!-- Header / HUD -->
+        <header class="flex justify-between items-center border-b border-cyber_cyan/30 pb-4 mb-24">
+            <div class="text-cyber_cyan font-bold tracking-widest text-xs uppercase">
+                SYSTEM_STATUS: <span class="text-green-500 animate-pulse">ONLINE</span>
+            </div>
+            <div class="text-cyber_cyan/50 text-xs font-mono">
+                COORD: 35.6895° N, 139.6917° E
+            </div>
+        </header>
 
         <!-- Hero Section -->
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-end">
-            <div class="lg:col-span-7 space-y-8">
-                <div class="reveal active" style="transition-delay: 0.1s;">
-                    <h1 class="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-[0.85] mb-8">
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-12">
+                <div class="reveal active">
+                    <h2 class="text-cyber_cyan font-orbitron text-sm tracking-[0.5em] uppercase mb-4">_INITIALIZING_DATA_STREAM</h2>
+                    <h1 class="text-6xl md:text-8xl font-black font-orbitron leading-none mb-8 glitch-text">
                         YAU GIAK KIAN                    </h1>
-                    <p class="text-xl md:text-2xl text-muted font-medium max-w-md">
-                        Senior Graphic Designer                    </p>
+                    <div class="inline-block px-4 py-2 bg-cyber_magenta/10 border-l-4 border-cyber_magenta text-cyber_magenta font-bold text-lg md:text-xl">
+                        > Senior Graphic Designer                    </div>
                 </div>
 
-                <div class="aspect-[4/5] relative overflow-hidden rounded-2xl lg:hidden reveal active" style="transition-delay: 0.2s;">
-                    <img
-                        src="https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg?width=1877&amp;height=2400"
-                        alt="YAU GIAK KIAN"
-                        class="w-full h-full object-cover"
-                    >
+                <div class="lg:hidden reveal active">
+                    <div class="cyber-border p-2">
+                        <img src="https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg?width=1877&amp;height=2400" alt="SUBJECT_01" class="w-full grayscale hover:grayscale-0 transition-all duration-500">
+                    </div>
                 </div>
+
+                <p class="text-lg md:text-xl text-white/70 max-w-xl leading-relaxed">
+                    Accessing bio-data... <br>
+                    <span class="text-cyber_cyan">Creative Graphic Designer with over 3 years of experience in retail branding and digital content. Proven track record in designing for both physical spaces like exhibition booths, store renovations and digital platforms. Skilled in taking projects from initial concept to final setup.</span>
+                </p>
             </div>
 
             <div class="lg:col-span-5 hidden lg:block">
-                <div class="aspect-[4/5] relative overflow-hidden rounded-[2.5rem] reveal active" style="transition-delay: 0.3s;">
-                    <img
-                        src="https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg?width=1877&amp;height=2400"
-                        alt="YAU GIAK KIAN"
-                        class="w-full h-full object-cover"
-                    >
+                <div class="reveal active" style="transition-delay: 0.2s;">
+                    <div class="cyber-border p-3 group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg?width=1877&amp;height=2400" alt="SUBJECT_01" class="w-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                            <div class="absolute inset-0 bg-cyber_cyan/10 opacity-50 group-hover:opacity-0 pointer-events-none"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 reveal">
-            <div class="lg:col-span-4">
-                <h2 class="text-2xl font-bold flex items-center gap-2">
-                    about
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
-                </h2>
+        <!-- Experience HUD -->
+        <section class="space-y-16 reveal">
+            <div class="flex items-center gap-4">
+                <h2 class="text-3xl font-orbitron font-bold text-cyber_cyan uppercase">_WORK_HISTORY</h2>
+                <div class="h-[1px] flex-grow bg-cyber_cyan/30"></div>
             </div>
-            <div class="lg:col-span-8">
-                <p class="text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.1] tracking-tight">
-                    Creative Graphic Designer with over 3 years of experience in retail branding and digital content. Proven track record in designing for both physical spaces like exhibition booths, store renovations and digital platforms. Skilled in taking projects from initial concept to final setup.                </p>
-            </div>
-        </section>
 
-        <!-- Experience Section -->
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 reveal">
-            <div class="lg:col-span-4">
-                <h2 class="text-2xl font-bold flex items-center gap-2">
-                    experience
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
-                </h2>
-            </div>
-            <div class="lg:col-span-8 space-y-16">
-                                <div class="group space-y-6">
-                    <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
-                        <h3 class="text-3xl font-bold group-hover:translate-x-2 transition-transform duration-300">Pangu Sdn Bhd</h3>
-                        <span class="text-muted font-medium text-lg px-4 py-1 bg-accent rounded-full w-fit">Jan 2022 – Present</span>
+            <div class="grid grid-cols-1 gap-8">
+                                <div class="cyber-border p-8 group relative">
+                    <div class="absolute top-0 right-0 p-4 text-[10px] font-bold text-cyber_cyan/20">LOG_ID: 001</div>
+                    <div class="flex flex-col md:flex-row justify-between gap-4 mb-6">
+                        <div>
+                            <h3 class="text-2xl font-orbitron font-bold text-cyber_yellow">Pangu Sdn Bhd</h3>
+                            <p class="text-cyber_cyan font-bold italic">Senior Graphic Designer</p>
+                        </div>
+                        <div class="text-cyber_magenta font-bold font-mono">Jan 2022 – Present</div>
                     </div>
-                    <p class="text-2xl font-semibold text-muted">Senior Graphic Designer</p>
-                    <p class="text-xl text-muted/80 leading-relaxed whitespace-pre-line max-w-3xl">
+                    <p class="text-white/60 leading-relaxed whitespace-pre-line border-l border-cyber_cyan/30 pl-6">
                         Authorized Exclusive Distributor – COROS &amp; BMAI
 • Manage all design assets and website updates for pangu.my and coros.my while overseeing the visual identity for the Bmai, COROS, and Pangu Headphones brands.
 • Create high-quality graphics and engaging content for social media postings to drive brand awareness.
@@ -106,175 +195,135 @@
 • Support retail store renovation projects and new shop opening concepts from planning to execution.
 • Develop custom apparel designs and various internal marketing collaterals.                    </p>
                 </div>
-                                <div class="group space-y-6">
-                    <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
-                        <h3 class="text-3xl font-bold group-hover:translate-x-2 transition-transform duration-300">Bitlink System</h3>
-                        <span class="text-muted font-medium text-lg px-4 py-1 bg-accent rounded-full w-fit">2019 – 2021</span>
+                                <div class="cyber-border p-8 group relative">
+                    <div class="absolute top-0 right-0 p-4 text-[10px] font-bold text-cyber_cyan/20">LOG_ID: 002</div>
+                    <div class="flex flex-col md:flex-row justify-between gap-4 mb-6">
+                        <div>
+                            <h3 class="text-2xl font-orbitron font-bold text-cyber_yellow">Bitlink System</h3>
+                            <p class="text-cyber_cyan font-bold italic">Administrative Assistant</p>
+                        </div>
+                        <div class="text-cyber_magenta font-bold font-mono">2019 – 2021</div>
                     </div>
-                    <p class="text-2xl font-semibold text-muted">Administrative Assistant</p>
-                    <p class="text-xl text-muted/80 leading-relaxed whitespace-pre-line max-w-3xl">
+                    <p class="text-white/60 leading-relaxed whitespace-pre-line border-l border-cyber_cyan/30 pl-6">
                         • Managed daily administrative tasks, documentation, and office paperwork.
 • Handled accurate data entry and record management for the team.                    </p>
                 </div>
                             </div>
         </section>
 
-        <!-- Education & Skills -->
-        <div class="space-y-32">
-            <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 reveal">
-                <div class="lg:col-span-4">
-                    <h2 class="text-2xl font-bold flex items-center gap-2">
-                        education
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
-                    </h2>
-                </div>
-                <div class="lg:col-span-8 space-y-12">
-                                        <div class="space-y-3">
-                        <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
-                            <h3 class="text-2xl font-bold">Bachelor of Science (Hons) Multimedia Computing</h3>
-                            <span class="text-muted font-medium whitespace-nowrap">2020-2022</span>
-                        </div>
-                        <p class="text-xl text-muted">YPC International College / Liverpool Moores University</p>
-                    </div>
-                                        <div class="space-y-3">
-                        <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
-                            <h3 class="text-2xl font-bold">Diploma in E-Business Technology</h3>
-                            <span class="text-muted font-medium whitespace-nowrap">2017-2019</span>
-                        </div>
-                        <p class="text-xl text-muted">YPC International College</p>
-                    </div>
-                                    </div>
-            </section>
-
-            <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 reveal">
-                <div class="lg:col-span-4">
-                    <h2 class="text-2xl font-bold flex items-center gap-2">
-                        skills
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
-                    </h2>
-                </div>
-                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div class="p-10 bg-accent rounded-[2rem] space-y-4 hover:bg-black hover:text-white transition-all duration-500 group cursor-default">
-                        <h3 class="text-2xl font-bold">Branding &amp; Identity</h3>
-                        <p class="text-lg text-muted group-hover:text-white/80 transition-colors duration-500 leading-relaxed">Logo design, typography, packaging, and style guides.</p>
-                    </div>
-                                        <div class="p-10 bg-accent rounded-[2rem] space-y-4 hover:bg-black hover:text-white transition-all duration-500 group cursor-default">
-                        <h3 class="text-2xl font-bold">UI/UX Design</h3>
-                        <p class="text-lg text-muted group-hover:text-white/80 transition-colors duration-500 leading-relaxed">Wireframing, prototyping, user research, and responsive web design.</p>
-                    </div>
-                                        <div class="p-10 bg-accent rounded-[2rem] space-y-4 hover:bg-black hover:text-white transition-all duration-500 group cursor-default">
-                        <h3 class="text-2xl font-bold">Project Management</h3>
-                        <p class="text-lg text-muted group-hover:text-white/80 transition-colors duration-500 leading-relaxed">Team leadership, client relations, and deadline management.</p>
-                    </div>
-                                    </div>
-            </section>
-        </div>
-
-        <!-- Projects Section -->
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 reveal">
-            <div class="lg:col-span-4">
-                <h2 class="text-2xl font-bold flex items-center gap-2">
-                    featured projects
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
-                </h2>
+        <!-- Skill Matrix -->
+        <section class="space-y-16 reveal">
+            <div class="flex items-center gap-4">
+                <h2 class="text-3xl font-orbitron font-bold text-cyber_magenta uppercase">_SKILL_MATRIX</h2>
+                <div class="h-[1px] flex-grow bg-cyber_magenta/30"></div>
             </div>
-            <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
-                                <div class="space-y-8 group cursor-pointer hover:-translate-y-4 transition-transform duration-500">
-                    <div class="aspect-square relative overflow-hidden rounded-[2.5rem] bg-accent">
-                        <img
-                            src="https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=2400&amp;height=1600"
-                            alt="Acco Campaign"
-                            class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
-                        >
-                    </div>
-                    <div class="space-y-4 px-2">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-3xl font-bold">Acco Campaign</h3>
-                            <div class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="p-8 border border-cyber_magenta/20 bg-cyber_magenta/5 hover:bg-cyber_magenta/10 hover:border-cyber_magenta transition-all group">
+                    <div class="w-12 h-1 text-cyber_magenta bg-cyber_magenta mb-6 group-hover:w-full transition-all duration-500"></div>
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-4">Branding &amp; Identity</h3>
+                    <p class="text-sm text-white/50 font-mono">Logo design, typography, packaging, and style guides.</p>
+                </div>
+                                <div class="p-8 border border-cyber_magenta/20 bg-cyber_magenta/5 hover:bg-cyber_magenta/10 hover:border-cyber_magenta transition-all group">
+                    <div class="w-12 h-1 text-cyber_magenta bg-cyber_magenta mb-6 group-hover:w-full transition-all duration-500"></div>
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-4">UI/UX Design</h3>
+                    <p class="text-sm text-white/50 font-mono">Wireframing, prototyping, user research, and responsive web design.</p>
+                </div>
+                                <div class="p-8 border border-cyber_magenta/20 bg-cyber_magenta/5 hover:bg-cyber_magenta/10 hover:border-cyber_magenta transition-all group">
+                    <div class="w-12 h-1 text-cyber_magenta bg-cyber_magenta mb-6 group-hover:w-full transition-all duration-500"></div>
+                    <h3 class="text-xl font-orbitron font-bold text-white mb-4">Project Management</h3>
+                    <p class="text-sm text-white/50 font-mono">Team leadership, client relations, and deadline management.</p>
+                </div>
                             </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="space-y-16 reveal">
+            <div class="flex items-center gap-4">
+                <h2 class="text-3xl font-orbitron font-bold text-cyber_yellow uppercase">_OPERATIONS</h2>
+                <div class="h-[1px] flex-grow bg-cyber_yellow/30"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                                <div class="group relative">
+                    <div class="cyber-border overflow-hidden">
+                        <img src="https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=2400&amp;height=1600" alt="PROJECT_DATA" class="w-full grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-orbitron font-bold text-cyber_cyan group-hover:text-cyber_magenta transition-colors">Acco Campaign</h3>
+                        <p class="text-white/60 font-mono">Revamped Acco’s brand with a bold, engaging campaign for global impact.</p>
+                        <div class="flex items-center gap-2 text-cyber_cyan text-xs font-bold uppercase tracking-widest">
+                            [VIEW_ENCRYPTED_DATA] <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
                         </div>
-                        <p class="text-xl text-muted leading-relaxed">Revamped Acco’s brand with a bold, engaging campaign for global impact.</p>
                     </div>
                 </div>
-                                <div class="space-y-8 group cursor-pointer hover:-translate-y-4 transition-transform duration-500">
-                    <div class="aspect-square relative overflow-hidden rounded-[2.5rem] bg-accent">
-                        <img
-                            src="https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=2400&amp;height=2400"
-                            alt="Luna Direction"
-                            class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
-                        >
+                                <div class="group relative">
+                    <div class="cyber-border overflow-hidden">
+                        <img src="https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=2400&amp;height=2400" alt="PROJECT_DATA" class="w-full grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110">
                     </div>
-                    <div class="space-y-4 px-2">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-3xl font-bold">Luna Direction</h3>
-                            <div class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
-                            </div>
+                    <div class="mt-8 space-y-4">
+                        <h3 class="text-2xl font-orbitron font-bold text-cyber_cyan group-hover:text-cyber_magenta transition-colors">Luna Direction</h3>
+                        <p class="text-white/60 font-mono">Crafted Luna’s creative direction to elevate brand identity and audience connection.</p>
+                        <div class="flex items-center gap-2 text-cyber_cyan text-xs font-bold uppercase tracking-widest">
+                            [VIEW_ENCRYPTED_DATA] <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
                         </div>
-                        <p class="text-xl text-muted leading-relaxed">Crafted Luna’s creative direction to elevate brand identity and audience connection.</p>
                     </div>
                 </div>
                             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 pt-24 pb-12 border-t border-gray-100 reveal">
-            <div class="lg:col-span-4 space-y-8">
-                <button class="w-full md:w-auto px-10 py-5 bg-black text-white rounded-full font-bold text-xl hover:bg-black/90 active:scale-95 transition-all flex items-center justify-center gap-3">
-                    Download PDF Resume <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
-                </button>
-            </div>
-
-            <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
-                <div class="space-y-6">
-                    <h4 class="text-sm font-bold uppercase tracking-[0.2em] text-muted">location</h4>
-                    <div class="flex items-center gap-3 font-bold text-2xl tracking-tight">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                        New York City                    </div>
+        <!-- Connection / Footer -->
+        <footer class="pt-24 pb-12 border-t border-cyber_cyan/30 reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
+                <div class="lg:col-span-5 space-y-8">
+                    <h2 class="text-4xl font-orbitron font-black text-white leading-tight">ESTABLISH_CONNECTION</h2>
+                    <button class="btn-cyber w-full md:w-auto">
+                        DOWNLOAD_CORE_RESUME.PDF
+                    </button>
                 </div>
 
-                <div class="space-y-6 md:col-span-2">
-                    <h4 class="text-sm font-bold uppercase tracking-[0.2em] text-muted">Contact details</h4>
+                <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div class="space-y-4">
-                        <a href="mailto:hello@jordanreese.com" class="block text-2xl md:text-4xl font-bold hover:text-muted transition-colors break-words">
+                        <p class="text-cyber_cyan font-bold uppercase tracking-widest text-xs">// LOCATION</p>
+                        <p class="text-2xl font-orbitron">New York City</p>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-cyber_magenta font-bold uppercase tracking-widest text-xs">// NEURAL_MAIL</p>
+                        <a href="mailto:hello@jordanreese.com" class="text-xl md:text-2xl font-orbitron hover:text-cyber_cyan transition-colors truncate block">
                             hello@jordanreese.com                        </a>
-                        <a href="tel:453-485-6481" class="block text-2xl md:text-4xl font-bold hover:text-muted transition-colors">
-                            453-485-6481                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="lg:col-span-12 flex flex-col md:flex-row justify-between items-center gap-8 pt-24 text-muted font-medium text-lg">
-                <p>© 2025 studio kismo</p>
-                <div class="flex gap-12">
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="hover:text-black transition-colors flex items-center gap-2">
-                        Instagram <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="hover:text-black transition-colors flex items-center gap-2">
-                        LinkedIn <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    </a>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-bold text-white/30 uppercase tracking-[0.5em]">
+                <p>© 2025 NEURAL_ARCHIVE // STUDIO_KISMO</p>
+                <div class="flex gap-8">
+                    <a href="https://www.instagram.com/" class="hover:text-cyber_cyan transition-colors">INSTAGRAM</a>
+                    <a href="https://www.linkedin.com/" class="hover:text-cyber_magenta transition-colors">LINKEDIN</a>
                 </div>
             </div>
         </footer>
     </main>
 
     <script>
-        const observerOptions = {
-            root: null,
-            rootMargin: '-100px',
-            threshold: 0.1
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // Random glitch effect on text
+        setInterval(() => {
+            const glitch = document.querySelector('.glitch-text');
+            glitch.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px)`;
+            setTimeout(() => {
+                glitch.style.transform = 'translate(0,0)';
+            }, 50);
+        }, 3000);
     </script>
 </body>
 </html>
