@@ -60,16 +60,6 @@ if (!$project) {
             transform: translateY(0);
         }
 
-        .pull-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .pull-up.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Redesigned Floating Header */
         .header-floating {
             position: fixed;
@@ -89,30 +79,36 @@ if (!$project) {
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
-        /* Interactive Modal Styles */
+        /* Interactive Modal Styles - Optimized for all aspect ratios */
         #gallery-modal {
             display: none;
             position: fixed;
             inset: 0;
             z-index: 1000;
-            background: rgba(245, 241, 230, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1rem;
         }
         #gallery-modal.active { display: flex; }
 
         .modal-content {
             width: 100%;
-            max-width: 1000px;
-            aspect-ratio: 16/9;
-            position: relative;
-            background: #e8e8e8;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            height: 100%;
+            max-width: 90vw;
+            max-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem;
         }
 
         .gallery-dock {
@@ -120,14 +116,15 @@ if (!$project) {
             bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 87, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 87, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 1.5rem;
             padding: 0.75rem;
             display: flex;
             gap: 0.5rem;
             z-index: 1001;
+            max-width: 90vw;
         }
 
         .dock-item {
@@ -138,15 +135,33 @@ if (!$project) {
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
             border: 2px solid transparent;
-            opacity: 0.6;
+            opacity: 0.5;
+            flex-shrink: 0;
         }
-        .dock-item:hover { transform: translateY(-10px) scale(1.2); opacity: 1; }
-        .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-5px); }
+        .dock-item img { width: 100%; height: 100%; object-fit: cover; }
+        .dock-item:hover { transform: translateY(-8px) scale(1.1); opacity: 1; }
+        .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-4px); }
+
+        /* Flexible Grid for Artifacts */
+        .artifact-card {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: rgba(0,0,0,0.03);
+            cursor: pointer;
+        }
+        .artifact-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .artifact-card:hover img { transform: scale(1.05); }
 
         @media (max-width: 768px) {
             .header-floating { top: 1rem; gap: 1rem; padding: 0.4rem 0.4rem 0.4rem 1rem; }
-            .gallery-dock { padding: 0.5rem; gap: 0.25rem; width: 90%; overflow-x: auto; justify-content: flex-start; }
-            .dock-item { width: 36px; height: 36px; flex-shrink: 0; }
+            .gallery-dock { padding: 0.5rem; gap: 0.25rem; overflow-x: auto; justify-content: flex-start; }
+            .dock-item { width: 36px; height: 36px; }
         }
     </style>
 </head>
@@ -172,7 +187,8 @@ if (!$project) {
                     <?php echo htmlspecialchars($project['title']); ?>
                 </h1>
             </div>
-            <div class="aspect-[21/9] rounded-xl overflow-hidden bg-gray-200 reveal active">
+            <!-- Flexible Hero Image -->
+            <div class="rounded-xl overflow-hidden bg-gray-200 reveal active shadow-lg aspect-video lg:aspect-[21/9]">
                 <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Cover" class="w-full h-full object-cover">
             </div>
         </section>
@@ -190,20 +206,20 @@ if (!$project) {
             </div>
         </section>
 
-        <!-- MagicUI: Interactive Bento Gallery -->
+        <!-- Interactive Bento Gallery - Flexible aspect ratios -->
         <section class="space-y-8 md:space-y-12">
             <div class="flex items-center justify-between reveal">
                 <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40">_Interactive_Gallery</h2>
-                <span class="text-[8px] md:text-xs font-bold opacity-20">CLICK_TO_EXPAND</span>
+                <span class="text-[8px] md:text-xs font-bold opacity-20">ORIENTATION_AGNOSTIC_v1.0</span>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[150px] md:auto-rows-[250px]">
                 <?php foreach ($project['gallery'] as $index => $item): ?>
                 <div
-                    class="relative rounded-xl overflow-hidden bg-gray-100 reveal cursor-pointer group <?php echo $item['span']; ?>"
+                    class="artifact-card reveal <?php echo $item['span']; ?>"
                     onclick="openGallery(<?php echo $index; ?>)"
                 >
-                    <img src="<?php echo htmlspecialchars($item['url']); ?>" alt="Artifact" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <img src="<?php echo htmlspecialchars($item['url']); ?>" alt="Artifact" loading="lazy">
                     <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors"></div>
                 </div>
                 <?php endforeach; ?>
@@ -218,20 +234,20 @@ if (!$project) {
         </section>
     </main>
 
-    <!-- Gallery Modal Structure -->
+    <!-- Modal -->
     <div id="gallery-modal">
-        <button onclick="closeGallery()" class="absolute top-8 right-8 w-12 h-12 rounded-full bg-brand_black text-white flex items-center justify-center hover:bg-brand_blue transition-colors z-[1002]">
+        <button onclick="closeGallery()" class="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-brand_blue transition-colors z-[1002] backdrop-blur-md">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
 
-        <div class="modal-content">
-            <img id="modal-img" src="" class="w-full h-full object-contain">
+        <div class="modal-content" onclick="closeGallery()">
+            <img id="modal-img" src="" onclick="event.stopPropagation()">
         </div>
 
         <div class="gallery-dock" id="dock">
             <?php foreach ($project['gallery'] as $index => $item): ?>
             <div class="dock-item" onclick="setGalleryImage(<?php echo $index; ?>)" data-index="<?php echo $index; ?>">
-                <img src="<?php echo htmlspecialchars($item['url']); ?>" class="w-full h-full object-cover">
+                <img src="<?php echo htmlspecialchars($item['url']); ?>">
             </div>
             <?php endforeach; ?>
         </div>
@@ -259,7 +275,6 @@ if (!$project) {
             dockItems.forEach(item => {
                 item.classList.toggle('active', parseInt(item.dataset.index) === index);
             });
-            // Scroll dock to active item on mobile
             const activeItem = document.querySelector(`.dock-item[data-index="${index}"]`);
             activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
@@ -272,7 +287,13 @@ if (!$project) {
             });
         }, { threshold: 0.05, rootMargin: '50px' });
 
-        document.querySelectorAll('.reveal, .pull-up').forEach((el) => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'Escape') closeGallery();
+        });
     </script>
 </body>
 </html>

@@ -23,16 +23,11 @@
                     },
                     animation: {
                         marquee: "marquee var(--duration) linear infinite",
-                        shimmer: "shimmer 2s linear infinite",
                     },
                     keyframes: {
                         marquee: {
                             from: { transform: "translateX(0)" },
                             to: { transform: "translateX(calc(-100% - var(--gap)))" },
-                        },
-                        shimmer: {
-                            from: { backgroundPosition: "0 0" },
-                            to: { backgroundPosition: "-200% 0" },
                         }
                     }
                 }
@@ -57,13 +52,19 @@
             transform: translateY(0);
         }
 
+        /* Flexible Image Container */
         .img-container {
             position: relative;
             overflow: hidden;
-            background: #e8e8e8;
+            background: rgba(0,0,0,0.03);
+            width: 100%;
         }
 
         .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
@@ -71,7 +72,7 @@
             transform: scale(1.05);
         }
 
-        /* MagicUI Marquee */
+        /* Marquee */
         .marquee-container {
             --gap: 2rem;
             --duration: 40s;
@@ -92,35 +93,24 @@
             animation: marquee var(--duration) linear infinite;
         }
 
-        /* MagicUI Bento Card */
         .bento-card {
             background: white;
             border: 1px solid rgba(0,0,0,0.05);
             padding: 2.5rem;
             border-radius: 1rem;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .bento-card:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-            border-color: #0057ff;
-        }
-
-        /* MagicUI Spotlight Effect */
+        /* Magic Spotlight */
         .magic-card {
             position: relative;
             background: white;
             border-radius: 1.5rem;
             border: 1px solid rgba(0,0,0,0.05);
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
-
-        .magic-card:hover {
-            transform: translateY(-5px);
-        }
+        .magic-card:hover { transform: translateY(-5px); border-color: rgba(0, 87, 255, 0.2); }
 
         .magic-spotlight {
             position: absolute;
@@ -131,10 +121,7 @@
             opacity: 0;
             transition: opacity 0.5s ease;
         }
-
-        .magic-card:hover .magic-spotlight {
-            opacity: 1;
-        }
+        .magic-card:hover .magic-spotlight { opacity: 1; }
 
         .header-floating {
             position: fixed;
@@ -186,8 +173,9 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 pt-4 md:pt-12">
                 <div class="lg:col-span-7">
-                    <div class="img-container aspect-[16/9] rounded-sm shadow-sm reveal active">
-                        <img src="<?php echo htmlspecialchars($data['profileImage']); ?>" alt="Cover" class="w-full h-full object-cover">
+                    <!-- Hero image uses flexible height on mobile, fixed aspect on desktop -->
+                    <div class="img-container rounded-sm shadow-sm reveal active aspect-video lg:aspect-[16/9]">
+                        <img src="<?php echo htmlspecialchars($data['profileImage']); ?>" alt="Cover">
                     </div>
                 </div>
                 <div class="lg:col-span-5 flex flex-col justify-end space-y-6 md:space-y-8 reveal active">
@@ -277,8 +265,9 @@
                 <?php foreach ($data['projects'] as $index => $project): ?>
                 <a href="<?php echo htmlspecialchars($project['id']); ?>.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4]">
-                        <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Project" class="w-full h-full object-cover" loading="lazy">
+                    <!-- Cards use fixed aspect-ratio for grid uniformity but object-cover for flexibility -->
+                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                        <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_<?php echo sprintf("%02d", $index + 1); ?></div>
                     </div>
