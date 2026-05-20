@@ -8,19 +8,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Instrument Sans', 'sans-serif'],
                     },
                     colors: {
-                        brand_bg: '#0a0a0c',
-                        brand_indigo: '#6366f1',
-                        brand_card: 'rgba(255, 255, 255, 0.03)',
+                        brand_paper: '#F5F1E6',
+                        brand_black: '#191919',
+                        brand_blue: '#0057ff',
                     }
                 }
             }
@@ -28,198 +27,203 @@
     </script>
     <style>
         body {
-            background-color: #0a0a0c;
-            color: #ffffff;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #fff 0%, #6366f1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(99, 102, 241, 0.3);
-            transform: translateY(-8px);
+            background-color: #F5F1E6;
+            color: #191919;
+            font-family: 'Instrument Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .stagger-reveal > * {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .stagger-reveal.active > * {
-            opacity: 1;
-            transform: translateY(0);
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            background: #e8e8e8;
         }
 
-        .cursor-blob {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(10, 10, 12, 0) 70%);
-            top: 0; left: 0;
-            pointer-events: none;
-            z-index: -1;
-            transform: translate(-50%, -50%);
+        .img-container img {
+            transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .img-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .btn-blue {
+            background: #0057ff;
+            color: white;
+            padding: 1.25rem 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-blue:hover {
+            background: #0044cc;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 87, 255, 0.2);
+        }
+
+        @media (min-width: 1024px) {
+            .text-huge {
+                font-size: 10vw;
+                line-height: 0.85;
+                letter-spacing: -0.04em;
+            }
         }
     </style>
 </head>
-<body class="selection:bg-brand_indigo/30 selection:text-white">
-    <div class="cursor-blob" id="blob"></div>
+<body class="selection:bg-brand_blue selection:text-white">
 
-    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center mix-blend-difference">
-        <div class="text-xl font-extrabold tracking-tighter">PORTFOLIO_2025</div>
-        <div class="hidden md:flex gap-12 text-sm font-medium uppercase tracking-widest opacity-60">
-            <a href="#work" class="hover:opacity-100 transition-opacity">Work</a>
-            <a href="#about" class="hover:opacity-100 transition-opacity">Experience</a>
-            <a href="#contact" class="hover:opacity-100 transition-opacity">Contact</a>
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center bg-brand_paper/80 backdrop-blur-sm border-b border-black/5">
+        <div class="text-xl font-bold tracking-tighter">PORTFOLIO.25</div>
+        <div class="flex gap-8 text-sm font-bold uppercase tracking-widest">
+            <a href="#work" class="hover:text-brand_blue transition-colors">Work</a>
+            <a href="#about" class="hover:text-brand_blue transition-colors">About</a>
+            <a href="#contact" class="hover:text-brand_blue transition-colors">Contact</a>
         </div>
-    </nav>
+    </header>
 
-    <main class="max-w-7xl mx-auto px-6 md:px-12 py-32 space-y-48">
+    <main class="max-w-[1600px] mx-auto px-6 lg:px-12 pt-48 pb-24 space-y-48">
 
         <!-- Hero Section -->
-        <section class="min-h-[80vh] flex flex-col justify-end stagger-reveal active">
-            <h2 class="text-brand_indigo font-semibold tracking-widest uppercase text-sm mb-6 transition-delay-100">Creative Strategist & Designer</h2>
-            <h1 class="text-7xl md:text-9xl font-extrabold tracking-tight leading-[0.9] transition-delay-200">
-                <span class="block">Building the</span>
-                <span class="gradient-text">Future Interface</span>
-            </h1>
-            <div class="mt-12 flex flex-col md:flex-row gap-8 items-start md:items-center transition-delay-300">
-                <p class="text-xl text-white/50 max-w-lg leading-relaxed">
-                    <?php echo htmlspecialchars($data['name']); ?> — based in <?php echo htmlspecialchars($data['contact']['location']); ?>.
-                    Specializing in high-fidelity branding and digital experiences for the next generation.
-                </p>
-                <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center animate-bounce">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 13 5 5 5-5"/><path d="M12 18V6"/></svg>
+        <section class="space-y-12 reveal active">
+            <div class="space-y-4">
+                <h2 class="text-brand_blue font-bold tracking-widest uppercase text-sm">SUBJECT_01 // <?php echo htmlspecialchars($data['title']); ?></h2>
+                <h1 class="text-6xl md:text-8xl lg:text-huge font-bold">
+                    <?php echo htmlspecialchars($data['name']); ?>
+                </h1>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-12">
+                <div class="lg:col-span-7">
+                    <div class="img-container aspect-[16/9] rounded-sm">
+                        <img src="<?php echo htmlspecialchars($data['profileImage']); ?>" alt="Cover" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="lg:col-span-5 flex flex-col justify-end space-y-8">
+                    <p class="text-2xl md:text-3xl font-semibold leading-tight">
+                        <?php echo htmlspecialchars($data['about']); ?>
+                    </p>
+                    <div class="pt-4">
+                        <a href="#contact" class="btn-blue">
+                            Connect Now <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Profile Image Break -->
-        <section id="about" class="reveal">
-            <div class="aspect-[21/9] rounded-[2rem] overflow-hidden group">
-                <img src="<?php echo htmlspecialchars($data['profileImage']); ?>" alt="Profile" class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+        <!-- Stats / Info Bar -->
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-8 py-24 border-y border-brand_black/10 reveal">
+            <div class="space-y-2">
+                <p class="text-xs font-bold uppercase opacity-40">Status</p>
+                <p class="text-xl font-bold italic">Available for Projects</p>
+            </div>
+            <div class="space-y-2">
+                <p class="text-xs font-bold uppercase opacity-40">Location</p>
+                <p class="text-xl font-bold"><?php echo htmlspecialchars($data['contact']['location']); ?></p>
+            </div>
+            <div class="space-y-2">
+                <p class="text-xs font-bold uppercase opacity-40">Experience</p>
+                <p class="text-xl font-bold">3+ Years Professional</p>
+            </div>
+            <div class="space-y-2">
+                <p class="text-xs font-bold uppercase opacity-40">Expertise</p>
+                <p class="text-xl font-bold"><?php echo htmlspecialchars($data['title']); ?></p>
             </div>
         </section>
 
-        <!-- About Intro -->
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 reveal">
+        <!-- Experience -->
+        <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-12 reveal">
             <div class="lg:col-span-4">
-                <h2 class="text-sm font-bold uppercase tracking-[0.3em] opacity-40">Bio // 01</h2>
+                <h2 class="text-4xl font-bold sticky top-32">Experience <br><span class="text-brand_blue">Archives.</span></h2>
             </div>
-            <div class="lg:col-span-8">
-                <p class="text-4xl md:text-5xl font-semibold leading-tight">
-                    <?php echo htmlspecialchars($data['about']); ?>
-                </p>
-            </div>
-        </section>
-
-        <!-- Experience Grid -->
-        <section class="space-y-24 reveal">
-            <div class="flex flex-col md:flex-row justify-between items-end gap-8">
-                <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight">Selected <br><span class="opacity-30">Experience</span></h2>
-                <p class="text-white/40 max-w-xs font-medium">A timeline of professional evolution and creative problem solving across 3+ years.</p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-4">
+            <div class="lg:col-span-8 space-y-24">
                 <?php foreach ($data['experience'] as $item): ?>
-                <div class="glass-card p-12 rounded-[2.5rem] flex flex-col md:flex-row justify-between gap-12 group">
-                    <div class="space-y-4">
-                        <div class="text-brand_indigo font-bold text-sm uppercase tracking-widest"><?php echo htmlspecialchars($item['period']); ?></div>
-                        <h3 class="text-4xl font-bold"><?php echo htmlspecialchars($item['company']); ?></h3>
-                        <p class="text-xl text-white/60 font-medium"><?php echo htmlspecialchars($item['role']); ?></p>
+                <div class="space-y-8 border-b border-brand_black/5 pb-16 last:border-0 group">
+                    <div class="flex flex-col md:flex-row justify-between gap-4">
+                        <h3 class="text-4xl md:text-5xl font-bold group-hover:text-brand_blue transition-colors"><?php echo htmlspecialchars($item['company']); ?></h3>
+                        <span class="text-xl font-bold opacity-30"><?php echo htmlspecialchars($item['period']); ?></span>
                     </div>
-                    <div class="max-w-xl">
-                        <p class="text-lg text-white/40 leading-relaxed group-hover:text-white/70 transition-colors duration-500 whitespace-pre-line font-mono">
-                            <?php echo htmlspecialchars($item['description']); ?>
-                        </p>
-                    </div>
+                    <p class="text-2xl font-bold text-brand_blue/60"><?php echo htmlspecialchars($item['role']); ?></p>
+                    <p class="text-xl md:text-2xl text-brand_black/60 font-medium leading-relaxed max-w-3xl whitespace-pre-line">
+                        <?php echo htmlspecialchars($item['description']); ?>
+                    </p>
                 </div>
                 <?php endforeach; ?>
             </div>
         </section>
 
-        <!-- Projects - Featured Operations -->
+        <!-- Projects -->
         <section id="work" class="space-y-24 reveal">
-            <div class="flex items-center gap-6">
-                <div class="w-12 h-[1px] bg-white/20"></div>
-                <h2 class="text-sm font-bold uppercase tracking-[0.3em] opacity-40">Featured Works</h2>
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+                <h2 class="text-6xl md:text-8xl font-bold tracking-tighter">Project <br>Spotlight.</h2>
+                <p class="text-xl font-bold max-w-xs opacity-40">Curated selection of high-impact visual communications.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-32">
                 <?php foreach ($data['projects'] as $index => $project): ?>
-                <div class="space-y-8 group">
-                    <div class="aspect-square rounded-[3rem] overflow-hidden bg-white/5 relative">
-                        <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Project" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                        <div class="absolute top-8 left-8 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full text-xs font-bold border border-white/10 uppercase tracking-widest">Case Study // 0<?php echo $index + 1; ?></div>
+                <div class="space-y-12 group cursor-pointer">
+                    <div class="img-container aspect-[4/5] rounded-sm">
+                        <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Project" class="w-full h-full object-cover">
                     </div>
-                    <div class="px-4 space-y-2">
-                        <h3 class="text-3xl font-extrabold group-hover:text-brand_indigo transition-colors"><?php echo htmlspecialchars($project['title']); ?></h3>
-                        <p class="text-white/40 font-medium"><?php echo htmlspecialchars($project['description']); ?></p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="text-sm font-bold text-brand_blue tracking-widest">PROJECT_0<?php echo $index + 1; ?></span>
+                            <div class="h-[1px] flex-grow bg-brand_black/10"></div>
+                        </div>
+                        <h3 class="text-4xl font-bold"><?php echo htmlspecialchars($project['title']); ?></h3>
+                        <p class="text-2xl text-brand_black/50 font-medium leading-relaxed"><?php echo htmlspecialchars($project['description']); ?></p>
                     </div>
                 </div>
                 <?php endforeach; ?>
             </div>
         </section>
 
-        <!-- Connection -->
+        <!-- Footer -->
         <footer id="contact" class="pt-48 pb-12 reveal">
-            <div class="flex flex-col md:flex-row justify-between gap-24 items-start">
-                <div class="space-y-12 max-w-2xl">
-                    <h2 class="text-6xl md:text-8xl font-extrabold tracking-tight leading-none">Let's craft the <span class="gradient-text">extraordinary</span> together.</h2>
-                    <a href="mailto:<?php echo htmlspecialchars($data['contact']['email']); ?>" class="inline-block text-2xl md:text-4xl font-bold border-b-4 border-brand_indigo pb-2 hover:text-brand_indigo transition-colors truncate max-w-full">
+            <div class="bg-brand_black text-brand_paper p-12 md:p-24 rounded-sm space-y-16">
+                <div class="space-y-6">
+                    <h2 class="text-5xl md:text-8xl font-bold tracking-tighter leading-none">Ready to start <br>the conversation?</h2>
+                    <p class="text-xl md:text-2xl font-medium opacity-60">I'm currently accepting new projects and collaborations.</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+                    <a href="mailto:<?php echo htmlspecialchars($data['contact']['email']); ?>" class="text-3xl md:text-5xl font-bold hover:text-brand_blue transition-colors border-b-4 border-brand_blue pb-2 break-all max-w-full">
                         <?php echo htmlspecialchars($data['contact']['email']); ?>
                     </a>
-                </div>
-                <div class="space-y-8 min-w-[200px]">
-                    <div class="space-y-4">
-                        <p class="text-xs font-bold uppercase tracking-widest opacity-30">Socials</p>
-                        <div class="flex flex-col gap-4 text-xl font-semibold">
-                            <a href="<?php echo htmlspecialchars($data['contact']['instagram']); ?>" target="_blank" rel="noopener noreferrer" class="hover:text-brand_indigo transition-colors">Instagram</a>
-                            <a href="<?php echo htmlspecialchars($data['contact']['linkedin']); ?>" target="_blank" rel="noopener noreferrer" class="hover:text-brand_indigo transition-colors">LinkedIn</a>
-                        </div>
+
+                    <div class="flex flex-wrap gap-8 text-lg font-bold uppercase tracking-widest">
+                        <a href="<?php echo htmlspecialchars($data['contact']['instagram']); ?>" class="hover:text-brand_blue transition-colors">Instagram</a>
+                        <a href="<?php echo htmlspecialchars($data['contact']['linkedin']); ?>" class="hover:text-brand_blue transition-colors">LinkedIn</a>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-48 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-sm font-medium opacity-30 uppercase tracking-widest">
-                <p>© 2025 ALL RIGHTS RESERVED</p>
-                <p>Designed for impact</p>
+            <div class="mt-24 flex flex-col md:flex-row justify-between items-center gap-8 text-xs font-bold uppercase tracking-widest opacity-30">
+                <p>© 2025 <?php echo htmlspecialchars($data['name']); ?> // ALL RIGHTS RESERVED</p>
+                <div class="flex gap-12">
+                    <span>Back to Top ↑</span>
+                    <span>Built with Precision</span>
+                </div>
             </div>
         </footer>
     </main>
 
     <script>
-        const blob = document.getElementById('blob');
-        window.onpointermove = event => {
-            const { clientX, clientY } = event;
-            blob.animate({
-                left: `${clientX}px`,
-                top: `${clientY}px`
-            }, { duration: 3000, fill: "forwards" });
-        }
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -229,12 +233,6 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-        // Stagger effects for hero
-        const heroItems = document.querySelectorAll('.stagger-reveal > *');
-        heroItems.forEach((item, index) => {
-            item.style.transitionDelay = `${(index + 1) * 150}ms`;
-        });
     </script>
 </body>
 </html>
