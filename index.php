@@ -180,10 +180,13 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20">
                 <?php foreach ($data['projects'] as $index => $project): ?>
-                <div class="space-y-8 group cursor-pointer">
+                <a href="<?php echo htmlspecialchars($project['id']); ?>.html" class="space-y-8 group cursor-pointer block">
                     <div class="img-container aspect-[3/4] rounded-sm">
                         <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Project" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/5 transition-colors duration-500"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="bg-brand_blue text-white px-6 py-3 rounded-full font-bold text-sm tracking-widest">VIEW_DETAIL</span>
+                        </div>
                     </div>
                     <div class="space-y-4">
                         <div class="flex items-center gap-4">
@@ -193,7 +196,7 @@
                         <h3 class="text-3xl font-bold group-hover:text-brand_blue transition-colors"><?php echo htmlspecialchars($project['title']); ?></h3>
                         <p class="text-lg text-brand_black/50 font-medium leading-snug line-clamp-2"><?php echo htmlspecialchars($project['description']); ?></p>
                     </div>
-                </div>
+                </a>
                 <?php endforeach; ?>
             </div>
         </section>

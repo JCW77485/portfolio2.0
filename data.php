@@ -46,64 +46,46 @@ $data = [
     ],
     'projects' => [
         [
+            'id' => 'acco-campaign',
             'title' => 'Acco Campaign',
             'description' => 'Revamped Acco’s brand with a bold, engaging campaign for global impact.',
-            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=2400&height=1600'
+            'full_description' => "This campaign was a complete overhaul of Acco's visual presence. We focused on high-contrast colors and bold typography to create a sense of urgency and modernity. The scope included social media assets, print advertisements, and a landing page redesign. Over the course of 6 months, we saw a 40% increase in brand engagement across all digital channels. This project demonstrated our ability to scale creative concepts globally while maintaining a cohesive brand voice.",
+            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=2400&height=1600',
+            'gallery' => [
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg'
+            ]
         ],
         [
+            'id' => 'luna-direction',
             'title' => 'Luna Direction',
             'description' => 'Crafted Luna’s creative direction to elevate brand identity and audience connection.',
-            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=2400&height=2400'
-        ],
-        [
-            'title' => 'Project Gamma',
-            'description' => 'A revolutionary approach to sustainable retail branding systems.',
-            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=1200&height=800'
-        ],
-        [
-            'title' => 'Vortex Identity',
-            'description' => 'Dynamic visual identity for a tech-driven logistics platform.',
-            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=1200&height=1200'
-        ],
-        [
-            'title' => 'Solaris Web',
-            'description' => 'High-fidelity UI/UX design for a next-gen solar energy dashboard.',
-            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=1200&height=800'
-        ],
-        [
-            'title' => 'Nexus Branding',
-            'description' => 'Unified brand ecosystem for a global telecommunications provider.',
-            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=1200&height=1200'
-        ],
-        [
-            'title' => 'Aero Concept',
-            'description' => 'Futuristic exhibition booth design for an aviation summit.',
-            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=1200&height=800'
-        ],
-        [
-            'title' => 'Titan Retail',
-            'description' => 'Store renovation and visual merchandising for a sports flagship.',
-            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=1200&height=1200'
-        ],
-        [
-            'title' => 'Elysium App',
-            'description' => 'Mobile application design focused on wellness and mindfulness.',
-            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=1200&height=800'
-        ],
-        [
-            'title' => 'Zenith Campaign',
-            'description' => 'Integrated marketing campaign for a luxury timepiece collection.',
-            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=1200&height=1200'
-        ],
-        [
-            'title' => 'Aurora Digital',
-            'description' => 'Social media strategy and content creation for a beauty brand.',
-            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=1200&height=800'
-        ],
-        [
-            'title' => 'Pulse Identity',
-            'description' => 'Bold typographic identity for a contemporary music festival.',
-            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=1200&height=1200'
+            'full_description' => "Luna Direction was about finding the 'soul' of the brand. We moved away from generic aesthetics toward a more artisanal, grounded visual language. This involved custom illustration sets, a new color palette inspired by twilight, and a comprehensive brand book. The new direction helped Luna secure partnerships with three major boutique retailers within the first quarter of implementation.",
+            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=2400&height=2400',
+            'gallery' => [
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg',
+                'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+                'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg'
+            ]
         ]
     ],
     'contact' => [
@@ -114,4 +96,16 @@ $data = [
         'linkedin' => 'https://www.linkedin.com/'
     ]
 ];
+
+// Seed remaining projects with similar structure for testing
+for ($i = 1; $i <= 10; $i++) {
+    $data['projects'][] = [
+        'id' => "project-$i",
+        'title' => "Advanced Operation $i",
+        'description' => "A high-performance design case study focusing on technical excellence and visual strategy.",
+        'full_description' => "This project represents the $i-th iteration of our advanced design framework. We explored the boundaries of modern UI components and branding systems. Key features include accessibility-first design, high-density information layouts, and a custom iconographic language. The project was delivered ahead of schedule and received unanimous approval from the stakeholder committee.",
+        'image' => ($i % 2 == 0) ? 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg' : 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg',
+        'gallery' => array_fill(0, 12, ($i % 2 == 0) ? 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg' : 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg')
+    ];
+}
 ?>
