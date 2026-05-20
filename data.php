@@ -57,9 +57,9 @@ $data = [
         ]
     ],
     'contact' => [
-        'location' => 'New York City',
-        'email' => 'hello@jordanreese.com',
-        'phone' => '453-485-6481',
+        'location' => 'Kuala Lumpur, Malaysia',
+        'email' => 'yaugiakkian@gmail.com',
+        'phone' => '+60 12-345 6789',
         'instagram' => 'https://www.instagram.com/',
         'linkedin' => 'https://www.linkedin.com/'
     ]
