@@ -17,7 +17,7 @@ if (!$project) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,15 +105,15 @@ if (!$project) {
     <main class="max-w-[1600px] mx-auto px-4 md:px-6 lg:px-12 pt-32 md:pt-48 pb-12 md:pb-24 space-y-16 md:space-y-32">
 
         <!-- Project Hero -->
-        <section class="space-y-8 md:space-y-12 reveal active">
-            <div class="space-y-4">
+        <section class="space-y-8 md:space-y-12">
+            <div class="space-y-4 reveal active">
                 <h2 class="text-brand_blue font-bold tracking-widest uppercase text-[10px] md:text-sm">CASE STUDY // 2025</h2>
                 <h1 class="text-4xl md:text-8xl lg:text-[8vw] font-bold tracking-tighter leading-tight md:leading-none">
                     <?php echo htmlspecialchars($project['title']); ?>
                 </h1>
             </div>
 
-            <div class="aspect-[16/9] rounded-sm overflow-hidden bg-gray-200 shadow-sm">
+            <div class="aspect-[16/9] rounded-sm overflow-hidden bg-gray-200 shadow-sm reveal active">
                 <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Cover" class="w-full h-full object-cover">
             </div>
         </section>
@@ -132,8 +132,8 @@ if (!$project) {
         </section>
 
         <!-- Image Gallery -->
-        <section class="space-y-8 md:space-y-12 reveal">
-            <div class="flex items-center justify-between">
+        <section class="space-y-8 md:space-y-12">
+            <div class="flex items-center justify-between reveal">
                 <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40">_Process & Artifacts</h2>
                 <span class="text-[8px] md:text-xs font-bold opacity-20"><?php echo count($project['gallery']); ?> IMAGES TOTAL</span>
             </div>
@@ -141,7 +141,7 @@ if (!$project) {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-12">
                 <?php foreach ($project['gallery'] as $index => $img): ?>
                 <div class="aspect-[3/4] md:aspect-square rounded-sm overflow-hidden bg-gray-100 reveal shadow-sm">
-                    <img src="<?php echo htmlspecialchars($img); ?>" alt="Process <?php echo $index; ?>" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                    <img src="<?php echo htmlspecialchars($img); ?>" alt="Process <?php echo $index; ?>" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" loading="lazy">
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -156,7 +156,7 @@ if (!$project) {
         </section>
     </main>
 
-    <footer class="max-w-[1600px] mx-auto px-4 md:px-6 lg:px-12 pb-12 text-[8px] md:text-xs font-bold uppercase tracking-widest opacity-20 flex justify-between items-center">
+    <footer class="max-w-[1600px] mx-auto px-6 lg:px-12 pb-12 text-[8px] md:text-xs font-bold uppercase tracking-widest opacity-20 flex justify-between items-center">
         <p>© 2025 YAU GIAK KIAN</p>
         <p class="hidden sm:block">Built with precision</p>
     </footer>
@@ -168,7 +168,10 @@ if (!$project) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 });
+        }, {
+            threshold: 0.05,
+            rootMargin: '50px'
+        });
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     </script>

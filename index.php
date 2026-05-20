@@ -1,6 +1,6 @@
 <?php include 'data.php'; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,6 +93,7 @@
             overflow: hidden;
             user-select: none;
             gap: var(--gap);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
 
@@ -176,8 +177,8 @@
     <main class="max-w-[1600px] mx-auto px-4 md:px-6 lg:px-12 pt-32 md:pt-48 pb-12 md:pb-24 space-y-24 md:space-y-48">
 
         <!-- Hero Section -->
-        <section class="space-y-8 md:space-y-12 reveal active">
-            <div class="space-y-4">
+        <section class="space-y-8 md:space-y-12">
+            <div class="space-y-4 reveal active">
                 <h2 class="text-brand_blue font-bold tracking-widest uppercase text-[10px] md:text-sm">SUBJECT_01 // <?php echo htmlspecialchars($data['title']); ?></h2>
                 <h1 class="text-4xl md:text-8xl lg:text-huge font-bold leading-tight md:leading-none">
                     <?php echo htmlspecialchars($data['name']); ?>
@@ -186,11 +187,11 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 pt-4 md:pt-12">
                 <div class="lg:col-span-7">
-                    <div class="img-container aspect-[16/9] rounded-sm shadow-sm">
+                    <div class="img-container aspect-[16/9] rounded-sm shadow-sm reveal active">
                         <img src="<?php echo htmlspecialchars($data['profileImage']); ?>" alt="Cover" class="w-full h-full object-cover">
                     </div>
                 </div>
-                <div class="lg:col-span-5 flex flex-col justify-end space-y-6 md:space-y-8">
+                <div class="lg:col-span-5 flex flex-col justify-end space-y-6 md:space-y-8 reveal active">
                     <p class="text-xl md:text-3xl font-semibold leading-snug md:leading-tight">
                         <?php echo htmlspecialchars($data['about']); ?>
                     </p>
@@ -224,11 +225,11 @@
         </section>
 
         <!-- MagicUI: Bento Grid Experience/Info -->
-        <section id="about" class="space-y-12 md:space-y-24 reveal">
-            <h2 class="text-3xl md:text-6xl font-bold tracking-tighter">Bio <span class="text-brand_blue">Matrix.</span></h2>
+        <section id="about" class="space-y-12 md:space-y-24">
+            <h2 class="text-3xl md:text-6xl font-bold tracking-tighter reveal">Bio <span class="text-brand_blue">Matrix.</span></h2>
 
             <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <div class="bento-card md:col-span-2 lg:col-span-2 aspect-square md:aspect-auto">
+                <div class="bento-card md:col-span-2 lg:col-span-2 aspect-square md:aspect-auto reveal">
                     <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Base_Location</p>
                     <div class="space-y-2">
                         <p class="text-3xl font-bold"><?php echo htmlspecialchars($data['contact']['location']); ?></p>
@@ -236,7 +237,7 @@
                     </div>
                 </div>
 
-                <div class="bento-card md:col-span-2 lg:col-span-4 bg-brand_black text-brand_paper">
+                <div class="bento-card md:col-span-2 lg:col-span-4 bg-brand_black text-brand_paper reveal">
                     <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Core_Discipline</p>
                     <div class="space-y-4">
                         <p class="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter"><?php echo htmlspecialchars($data['title']); ?></p>
@@ -244,7 +245,7 @@
                     </div>
                 </div>
 
-                <div class="bento-card lg:col-span-3">
+                <div class="bento-card lg:col-span-3 reveal">
                     <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Track_Record</p>
                     <div class="flex items-end justify-between">
                         <span class="text-6xl font-bold text-brand_blue">03+</span>
@@ -252,7 +253,7 @@
                     </div>
                 </div>
 
-                <div class="bento-card lg:col-span-3">
+                <div class="bento-card lg:col-span-3 reveal">
                     <p class="text-xs font-bold uppercase opacity-30 tracking-widest">Project_Stream</p>
                     <div class="flex items-end justify-between">
                         <span class="text-6xl font-bold text-brand_blue"><?php echo count($data['projects']); ?>+</span>
@@ -263,8 +264,8 @@
         </section>
 
         <!-- Projects - Optimized Grid -->
-        <section id="work" class="space-y-12 md:space-y-24 reveal">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8">
+        <section id="work" class="space-y-12 md:space-y-24">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8 reveal">
                 <div class="space-y-2 md:space-y-4">
                     <h2 class="text-4xl md:text-8xl font-bold tracking-tighter leading-none">Project <br>Spotlight.</h2>
                     <p class="text-sm md:text-xl font-bold opacity-40 uppercase tracking-widest">Selected Works // 2025</p>
@@ -274,9 +275,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-20">
                 <?php foreach ($data['projects'] as $index => $project): ?>
-                <a href="<?php echo htmlspecialchars($project['id']); ?>.html" class="space-y-4 md:space-y-8 group cursor-pointer block">
+                <a href="<?php echo htmlspecialchars($project['id']); ?>.html" class="space-y-4 md:space-y-8 group cursor-pointer block reveal">
                     <div class="img-container aspect-[3/4] rounded-sm">
-                        <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Project" class="w-full h-full object-cover">
+                        <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Project" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/5 transition-colors duration-500"></div>
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex">
                             <span class="bg-brand_blue text-white px-6 py-3 rounded-full font-bold text-sm tracking-widest">VIEW_DETAIL</span>
@@ -332,7 +333,10 @@
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 });
+        }, {
+            threshold: 0.05,
+            rootMargin: '50px'
+        });
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     </script>
