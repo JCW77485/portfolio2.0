@@ -60,7 +60,7 @@
         .btn-blue {
             background: #0057ff;
             color: white;
-            padding: 1.25rem 2.5rem;
+            padding: 1rem 2rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -68,6 +68,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
+            font-size: 0.875rem;
         }
 
         .btn-blue:hover {
@@ -119,7 +120,7 @@
                     </p>
                     <div class="pt-4">
                         <a href="#contact" class="btn-blue">
-                            Connect Now <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+                            Connect Now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
                         </a>
                     </div>
                 </div>
@@ -167,26 +168,30 @@
             </div>
         </section>
 
-        <!-- Projects -->
+        <!-- Projects - Optimized Grid -->
         <section id="work" class="space-y-24 reveal">
             <div class="flex flex-col md:flex-row justify-between items-end gap-8">
-                <h2 class="text-6xl md:text-8xl font-bold tracking-tighter">Project <br>Spotlight.</h2>
-                <p class="text-xl font-bold max-w-xs opacity-40">Curated selection of high-impact visual communications.</p>
+                <div class="space-y-4">
+                    <h2 class="text-6xl md:text-8xl font-bold tracking-tighter leading-none">Project <br>Spotlight.</h2>
+                    <p class="text-xl font-bold opacity-40 uppercase tracking-widest">Selected Works // 2025</p>
+                </div>
+                <p class="text-xl font-bold max-w-xs opacity-40 hidden lg:block">A deep dive into visual communication and design strategy across various industries.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20">
                 <?php foreach ($data['projects'] as $index => $project): ?>
-                <div class="space-y-12 group cursor-pointer">
-                    <div class="img-container aspect-[4/5] rounded-sm">
+                <div class="space-y-8 group cursor-pointer">
+                    <div class="img-container aspect-[3/4] rounded-sm">
                         <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Project" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/5 transition-colors duration-500"></div>
                     </div>
                     <div class="space-y-4">
                         <div class="flex items-center gap-4">
-                            <span class="text-sm font-bold text-brand_blue tracking-widest">PROJECT_0<?php echo $index + 1; ?></span>
+                            <span class="text-[10px] font-bold text-brand_blue tracking-[0.2em] uppercase">NO.<?php echo sprintf("%02d", $index + 1); ?></span>
                             <div class="h-[1px] flex-grow bg-brand_black/10"></div>
                         </div>
-                        <h3 class="text-4xl font-bold"><?php echo htmlspecialchars($project['title']); ?></h3>
-                        <p class="text-2xl text-brand_black/50 font-medium leading-relaxed"><?php echo htmlspecialchars($project['description']); ?></p>
+                        <h3 class="text-3xl font-bold group-hover:text-brand_blue transition-colors"><?php echo htmlspecialchars($project['title']); ?></h3>
+                        <p class="text-lg text-brand_black/50 font-medium leading-snug line-clamp-2"><?php echo htmlspecialchars($project['description']); ?></p>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -216,7 +221,7 @@
             <div class="mt-24 flex flex-col md:flex-row justify-between items-center gap-8 text-xs font-bold uppercase tracking-widest opacity-30">
                 <p>© 2025 <?php echo htmlspecialchars($data['name']); ?> // ALL RIGHTS RESERVED</p>
                 <div class="flex gap-12">
-                    <span>Back to Top ↑</span>
+                    <span class="cursor-pointer hover:text-brand_blue transition-colors" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to Top ↑</span>
                     <span>Built with Precision</span>
                 </div>
             </div>

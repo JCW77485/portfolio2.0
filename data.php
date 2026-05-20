@@ -54,6 +54,56 @@ $data = [
             'title' => 'Luna Direction',
             'description' => 'Crafted Luna’s creative direction to elevate brand identity and audience connection.',
             'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=2400&height=2400'
+        ],
+        [
+            'title' => 'Project Gamma',
+            'description' => 'A revolutionary approach to sustainable retail branding systems.',
+            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=1200&height=800'
+        ],
+        [
+            'title' => 'Vortex Identity',
+            'description' => 'Dynamic visual identity for a tech-driven logistics platform.',
+            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=1200&height=1200'
+        ],
+        [
+            'title' => 'Solaris Web',
+            'description' => 'High-fidelity UI/UX design for a next-gen solar energy dashboard.',
+            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=1200&height=800'
+        ],
+        [
+            'title' => 'Nexus Branding',
+            'description' => 'Unified brand ecosystem for a global telecommunications provider.',
+            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=1200&height=1200'
+        ],
+        [
+            'title' => 'Aero Concept',
+            'description' => 'Futuristic exhibition booth design for an aviation summit.',
+            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=1200&height=800'
+        ],
+        [
+            'title' => 'Titan Retail',
+            'description' => 'Store renovation and visual merchandising for a sports flagship.',
+            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=1200&height=1200'
+        ],
+        [
+            'title' => 'Elysium App',
+            'description' => 'Mobile application design focused on wellness and mindfulness.',
+            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=1200&height=800'
+        ],
+        [
+            'title' => 'Zenith Campaign',
+            'description' => 'Integrated marketing campaign for a luxury timepiece collection.',
+            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=1200&height=1200'
+        ],
+        [
+            'title' => 'Aurora Digital',
+            'description' => 'Social media strategy and content creation for a beauty brand.',
+            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=1200&height=800'
+        ],
+        [
+            'title' => 'Pulse Identity',
+            'description' => 'Bold typographic identity for a contemporary music festival.',
+            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=1200&height=1200'
         ]
     ],
     'contact' => [
