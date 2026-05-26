@@ -1,27 +1,80 @@
 <?php
-$data = [
-    'name' => 'YAU GIAK KIAN',
-    'title' => 'Senior Graphic Designer',
-    'profileImage' => 'https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg?width=1877&height=2400',
-    'about' => 'Creative Graphic Designer with over 3 years of experience in retail branding and digital content. Proven track record in designing for both physical spaces like exhibition booths, store renovations and digital platforms. Skilled in taking projects from initial concept to final setup.',
+/**
+ * PORTFOLIO GLOBAL CONFIGURATION
+ * Centralize all your text and images here.
+ */
+
+$config = [
+    // --- SITE METADATA ---
+    'site' => [
+        'name' => 'YAU GIAK KIAN',
+        'title' => 'Senior Graphic Designer',
+        'footer_copyright' => '© 2025 YAU GIAK KIAN // ALL RIGHTS RESERVED',
+        'built_with' => 'Designed with Magic & Precision',
+    ],
+
+    // --- NAVIGATION LABELS ---
+    'nav' => [
+        'home_label' => 'Portfolio.25',
+        'work' => 'Work',
+        'about' => 'About',
+        'contact' => 'Contact',
+        'back_to_home' => 'BACK_HOME',
+    ],
+
+    // --- HERO SECTION ---
+    'hero' => [
+        'prefix' => 'SUBJECT_01 // Senior Graphic Designer',
+        'name' => 'YAU GIAK KIAN',
+        'bio_short' => 'Creative Graphic Designer with over 3 years of experience in retail branding and digital content. Based in Kuala Lumpur, Malaysia.',
+        'profile_image' => 'https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg?width=1877&height=2400',
+        'cta_label' => 'SCROLL_FOR_INTEL',
+    ],
+
+    // --- BIO MATRIX SECTION ---
+    'bio_matrix' => [
+        'title' => 'Bio Matrix.',
+        'location_label' => 'Base_Location',
+        'location_value' => 'Kuala Lumpur, Malaysia',
+        'discipline_label' => 'Core_Discipline',
+        'discipline_value' => 'Senior Graphic Designer',
+        'discipline_desc' => 'Transforming complex business objectives into high-impact visual narratives since 2022.',
+        'experience_label' => 'Experience',
+        'education_label' => 'Education',
+    ],
+
+    // --- MARQUEE SKILLS ---
+    'skills' => [
+        'Branding & Identity',
+        'UI/UX Design',
+        'Project Management',
+        'Typography',
+        'Retail Branding',
+        'Digital Content',
+        'Exhibition Design'
+    ],
+
+    // --- PROFESSIONAL EXPERIENCE ---
     'experience' => [
         [
             'company' => 'Pangu Sdn Bhd',
             'period' => 'Jan 2022 – Present',
             'role' => 'Senior Graphic Designer',
-            'description' => "Authorized Exclusive Distributor – COROS & BMAI\n• Manage all design assets and website updates for pangu.my and coros.my while overseeing the visual identity for the Bmai, COROS, and Pangu Headphones brands.\n• Create high-quality graphics and engaging content for social media postings to drive brand awareness.\n• Design eye-catching POP displays and marketing materials for 3 retail stores and dealers to improve sales performance.\n• Handle the full design and physical setup for exhibition booths and event spaces.\n• Support retail store renovation projects and new shop opening concepts from planning to execution.\n• Develop custom apparel designs and various internal marketing collaterals."
+            'description' => "Authorized Exclusive Distributor – COROS & BMAI\n• Manage all design assets and website updates.\n• Create high-quality graphics and engaging content.\n• Design POP displays and marketing materials."
         ],
         [
             'company' => 'Bitlink System',
             'period' => '2019 – 2021',
             'role' => 'Administrative Assistant',
-            'description' => "• Managed daily administrative tasks, documentation, and office paperwork.\n• Handled accurate data entry and record management for the team."
+            'description' => "• Managed daily administrative tasks and documentation.\n• Handled accurate data entry and record management."
         ]
     ],
+
+    // --- EDUCATION ---
     'education' => [
         [
             'degree' => 'Bachelor of Science (Hons) Multimedia Computing',
-            'institution' => 'YPC International College / Liverpool Moores University',
+            'institution' => 'YPC International College',
             'period' => '2020-2022'
         ],
         [
@@ -30,72 +83,85 @@ $data = [
             'period' => '2017-2019'
         ]
     ],
-    'skills' => [
-        [
-            'category' => 'Branding & Identity',
-            'details' => 'Logo design, typography, packaging, and style guides.'
-        ],
-        [
-            'category' => 'UI/UX Design',
-            'details' => 'Wireframing, prototyping, user research, and responsive web design.'
-        ],
-        [
-            'category' => 'Project Management',
-            'details' => 'Team leadership, client relations, and deadline management.'
-        ]
-    ],
+
+    // --- PROJECTS (The central hub for all project info) ---
     'projects' => [
         [
             'id' => 'acco-campaign',
             'title' => 'Acco Campaign',
-            'description' => 'Revamped Acco’s brand with a bold, engaging campaign for global impact.',
-            'full_description' => "This campaign was a complete overhaul of Acco's visual presence. We focused on high-contrast colors and bold typography to create a sense of urgency and modernity.",
-            'image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=2400&height=1600',
-            'gallery' => [
-                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-2 sm:row-span-2'], // Landscape
-                ['url' => 'https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg', 'span' => 'sm:col-span-1 sm:row-span-2'], // Portrait
-                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'], // Square
-                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-2 sm:row-span-1'], // Landscape
-                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
-                ['url' => 'https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1']
+            'grid_label' => 'Neural Stream',
+            'grid_desc' => 'Revamped Acco’s brand with a bold, engaging campaign for global impact.',
+            'cover_image' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg?width=2400&height=1600',
+
+            // Detail Page Info
+            'detail' => [
+                'tagline' => 'PROCESS_LOG // v1.0',
+                'mission_title' => '_The Mission',
+                'description' => "This campaign was a complete overhaul of Acco's visual presence. We focused on high-contrast colors and bold typography to create a sense of urgency and modernity.",
+                'gallery_title' => '_Interactive_Gallery',
+                'gallery_status' => 'ORIENTATION_AGNOSTIC_v1.0',
+                'gallery' => [
+                    ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-2 sm:row-span-2'],
+                    ['url' => 'https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg', 'span' => 'sm:col-span-1 sm:row-span-2'],
+                    ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                    ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-2 sm:row-span-1'],
+                ]
             ]
         ],
         [
             'id' => 'luna-direction',
             'title' => 'Luna Direction',
-            'description' => 'Crafted Luna’s creative direction to elevate brand identity and audience connection.',
-            'full_description' => "Luna Direction was about finding the 'soul' of the brand. We moved away from generic aesthetics toward a more artisanal, grounded visual language.",
-            'image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=2400&height=2400',
-            'gallery' => [
-                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-2 sm:row-span-2'],
-                ['url' => 'https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg', 'span' => 'sm:col-span-1 sm:row-span-2'],
-                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
-                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-2 sm:row-span-1']
+            'grid_label' => 'Neural Stream',
+            'grid_desc' => 'Crafted Luna’s creative direction to elevate brand identity.',
+            'cover_image' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg?width=2400&height=2400',
+
+            'detail' => [
+                'tagline' => 'PROCESS_LOG // v1.0',
+                'mission_title' => '_The Mission',
+                'description' => "Luna Direction was about finding the 'soul' of the brand. We moved away from generic aesthetics toward a more artisanal, grounded visual language.",
+                'gallery_title' => '_Interactive_Gallery',
+                'gallery_status' => 'VISUAL_STUDY_v2.4',
+                'gallery' => [
+                    ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-2 sm:row-span-2'],
+                    ['url' => 'https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg', 'span' => 'sm:col-span-1 sm:row-span-2'],
+                    ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ]
             ]
         ]
     ],
+
+    // --- CONTACT & FOOTER ---
     'contact' => [
-        'location' => 'Kuala Lumpur, Malaysia',
+        'title' => "Let's Connect.",
+        'subtitle' => 'Neural protocols active for new collaborations.',
         'email' => 'yaugiakkian@gmail.com',
-        'phone' => '+60 12-345 6789',
-        'instagram' => 'https://www.instagram.com/',
-        'linkedin' => 'https://www.linkedin.com/'
+        'social' => [
+            ['name' => 'Instagram', 'url' => 'https://www.instagram.com/'],
+            ['name' => 'LinkedIn', 'url' => 'https://www.linkedin.com/'],
+        ]
     ]
 ];
 
-// Seed remaining projects with mixed orientations
+// Seed 10 more projects for high-volume layout testing
 for ($i = 1; $i <= 10; $i++) {
-    $img = ($i % 2 == 0) ? 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg' : 'https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg';
-    $data['projects'][] = [
+    $img = ($i % 2 == 0) ? 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg' : 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg';
+    $config['projects'][] = [
         'id' => "project-$i",
         'title' => "Advanced Operation $i",
-        'description' => "A high-performance design case study focusing on technical excellence and visual strategy.",
-        'full_description' => "This project represents the $i-th iteration of our advanced design framework.",
-        'image' => $img,
-        'gallery' => [
-            ['url' => $img, 'span' => 'sm:col-span-2 sm:row-span-2'],
-            ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
-            ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1']
+        'grid_label' => 'Neural Stream',
+        'grid_desc' => "Technical excellence iteration NO.$i.",
+        'cover_image' => $img,
+        'detail' => [
+            'tagline' => 'CASE_STUDY // SEED_DATA',
+            'mission_title' => '_The Challenge',
+            'description' => "This is a seeded project entry to demonstrate the high-volume grid layout and detail page structure.",
+            'gallery_title' => '_Asset_Repository',
+            'gallery_status' => 'STABLE_BUILD',
+            'gallery' => [
+                ['url' => $img, 'span' => 'sm:col-span-2 sm:row-span-2'],
+                ['url' => 'https://framerusercontent.com/images/Oqx6YKytap78HOSr0zKxcs4lU.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+                ['url' => 'https://framerusercontent.com/images/KOBK8KKe96vsUV9PlHUkG6k8.jpeg', 'span' => 'sm:col-span-1 sm:row-span-1'],
+            ]
         ]
     ];
 }

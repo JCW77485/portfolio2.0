@@ -10,7 +10,7 @@ file_put_contents('index.html', $indexHtml);
 
 // 2. Generate project detail pages
 echo "Generating project detail pages...\n";
-foreach ($data['projects'] as $project) {
+foreach ($config['projects'] as $project) {
     $id = $project['id'];
     echo " - Processing: $id.html\n";
 
