@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website | YAU GIAK KIAN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Instrument Sans', 'sans-serif'] },
+                    colors: { brand_paper: '#F5F1E6', brand_black: '#191919', brand_blue: '#0057ff' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F5F1E6; color: #191919; font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .header-floating { position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 100; background: rgba(245, 241, 230, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 9999px; padding: 0.5rem 0.5rem 0.5rem 1.5rem; display: flex; align-items: center; gap: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
+        #gallery-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px); flex-direction: column; align-items: center; justify-content: center; padding: 1rem; }
+        #gallery-modal.active { display: flex; }
+        .modal-content { width: 100%; height: 100%; max-width: 90vw; max-height: 75vh; display: flex; align-items: center; justify-content: center; }
+        .modal-content img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 0.5rem; }
+        .gallery-dock { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 1.5rem; padding: 0.75rem; display: flex; gap: 0.5rem; z-index: 1001; max-width: 90vw; }
+        .dock-item { width: 48px; height: 48px; border-radius: 0.75rem; overflow: hidden; cursor: pointer; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 2px solid transparent; opacity: 0.5; flex-shrink: 0; }
+        .dock-item img { width: 100%; height: 100%; object-fit: cover; }
+        .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-4px); }
+        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; }
+        .artifact-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .artifact-card:hover img { transform: scale(1.05); }
+        @media (max-width: 768px) { .header-floating { top: 1rem; gap: 1rem; padding: 0.4rem 0.4rem 0.4rem 1rem; } .gallery-dock { padding: 0.5rem; gap: 0.25rem; overflow-x: auto; justify-content: flex-start; } .dock-item { width: 36px; height: 36px; } }
+    </style>
+</head>
+<body class="selection:bg-brand_blue selection:text-white overflow-x-hidden">
+
+    <header class="header-floating">
+        <a href="index.html" class="text-sm font-bold tracking-tighter uppercase whitespace-nowrap flex items-center gap-2 group">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
+            BACK_HOME        </a>
+        <nav class="flex items-center gap-1">
+            <a href="mailto:yaugiakkian@gmail.com" class="px-6 py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest bg-brand_black text-white rounded-full hover:bg-brand_blue transition-all">Contact</a>
+        </nav>
+    </header>
+
+    <main class="max-w-[1600px] mx-auto px-4 md:px-6 lg:px-12 pt-32 md:pt-48 pb-12 md:pb-24 space-y-16 md:space-y-32">
+
+        <section class="space-y-8 md:space-y-12">
+            <div class="space-y-4 reveal active">
+                <h2 class="text-brand_blue font-bold tracking-[0.3em] uppercase text-[10px] md:text-sm">PROCESS_LOG // v1.0</h2>
+                <h1 class="text-5xl md:text-8xl lg:text-[8vw] font-bold tracking-tighter leading-none">
+                    Website                </h1>
+            </div>
+            <div class="aspect-[21/9] rounded-xl overflow-hidden bg-gray-200 reveal active shadow-lg">
+                <img src="img/Website/A- Slider/COROS.png" alt="Cover" class="w-full h-full object-cover">
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 reveal">
+            <div class="lg:col-span-4 space-y-4 md:space-y-6">
+                <h2 class="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] opacity-40">_The Mission</h2>
+                <div class="h-[1px] w-8 md:w-12 bg-brand_blue"></div>
+            </div>
+            <div class="lg:col-span-8">
+                <p class="text-xl md:text-4xl font-semibold leading-snug md:leading-tight text-brand_black">
+                    This project showcases our work for Website. It includes various design assets and marketing materials created to achieve specific brand goals.                </p>
+            </div>
+        </section>
+
+        <section class="space-y-8 md:space-y-12">
+            <div class="flex items-center justify-between reveal">
+                <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40">_Interactive_Gallery</h2>
+                <span class="text-[8px] md:text-xs font-bold opacity-20">STABLE_BUILD</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[150px] md:auto-rows-[250px]">
+                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-2" onclick="openGallery(0)">
+                    <img src="img/Website/A- Slider/COROS.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(1)">
+                    <img src="img/Website/A- Slider/PG01.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(2)">
+                    <img src="img/Website/A- Slider/PURELIGHT.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(3)">
+                    <img src="img/Website/A- Slider/RIVER 2 PRO.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(4)">
+                    <img src="img/Website/B- Featured Product Categories/ACCESSORIES-1.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-2" onclick="openGallery(5)">
+                    <img src="img/Website/B- Featured Product Categories/ACCESSORIES.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(6)">
+                    <img src="img/Website/B- Featured Product Categories/APPAREL.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(7)">
+                    <img src="img/Website/B- Featured Product Categories/APPAREL_1.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(8)">
+                    <img src="img/Website/B- Featured Product Categories/APPAREL_2.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(9)">
+                    <img src="img/Website/B- Featured Product Categories/APPAREL_3.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-2" onclick="openGallery(10)">
+                    <img src="img/Website/B- Featured Product Categories/FOOTWEAR.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(11)">
+                    <img src="img/Website/B- Featured Product Categories/FOOTWEAR_N.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(12)">
+                    <img src="img/Website/B- Featured Product Categories/OUTDOOR.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(13)">
+                    <img src="img/Website/B- Featured Product Categories/SPORT WATCH.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(14)">
+                    <img src="img/Website/B- Featured Product Categories/battery.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-2" onclick="openGallery(15)">
+                    <img src="img/Website/B- Featured Product Categories/bmai.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(16)">
+                    <img src="img/Website/B- Featured Product Categories/nomad.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(17)">
+                    <img src="img/Website/B- Featured Product Categories/river 3.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(18)">
+                    <img src="img/Website/B- Featured Product Categories/run 3.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(19)">
+                    <img src="img/Website/B- Featured Product Categories/strap.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-2" onclick="openGallery(20)">
+                    <img src="img/Website/B- Featured Product Categories/turbo.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(21)">
+                    <img src="img/Website/C- Unique Selling Point/Best Quality.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(22)">
+                    <img src="img/Website/C- Unique Selling Point/Customer Support.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(23)">
+                    <img src="img/Website/C- Unique Selling Point/free shipping.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(24)">
+                    <img src="img/Website/D- Product Highlight/Bmai.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-2" onclick="openGallery(25)">
+                    <img src="img/Website/D- Product Highlight/Bmai_new.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(26)">
+                    <img src="img/Website/D- Product Highlight/Bmai_turbo.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(27)">
+                    <img src="img/Website/D- Product Highlight/Heart Rate Monitor.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(28)">
+                    <img src="img/Website/D- Product Highlight/Sport Bone Conduction Headphone-2.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(29)">
+                    <img src="img/Website/D- Product Highlight/Sport Bone Conduction Headphone.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-2" onclick="openGallery(30)">
+                    <img src="img/Website/D- Product Highlight/Sport watch.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(31)">
+                    <img src="img/Website/D- Product Highlight/battery.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(32)">
+                    <img src="img/Website/D- Product Highlight/dura.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(33)">
+                    <img src="img/Website/D- Product Highlight/nomad watch.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(34)">
+                    <img src="img/Website/D- Product Highlight/power station.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-2" onclick="openGallery(35)">
+                    <img src="img/Website/D- Product Highlight/river 3.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(36)">
+                    <img src="img/Website/D- Product Highlight/run 3.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(37)">
+                    <img src="img/Website/D- Product Highlight/smart devices.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(38)">
+                    <img src="img/Website/E- Special Highlight/BREATHABLE WRAPPED UPPER.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(39)">
+                    <img src="img/Website/E- Special Highlight/FLOWSOLE SYSTEM.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-2" onclick="openGallery(40)">
+                    <img src="img/Website/E- Special Highlight/FOAM4+.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(41)">
+                    <img src="img/Website/E- Special Highlight/HEMP TECHNOLOGY INSOLES.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(42)">
+                    <img src="img/Website/E- Special Highlight/Image1.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(43)">
+                    <img src="img/Website/E- Special Highlight/Image2.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(44)">
+                    <img src="img/Website/E- Special Highlight/Image3.jpg" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-2" onclick="openGallery(45)">
+                    <img src="img/Website/E- Special Highlight/Image4.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(46)">
+                    <img src="img/Website/E- Special Highlight/SUPER LITE RB.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(47)">
+                    <img src="img/Website/E- Special Highlight/WIDE SHOE LAST.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(48)">
+                    <img src="img/Website/Untitled-1.png" alt="Artifact" loading="lazy">
+                </div>
+                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(49)">
+                    <img src="img/Website/white-clean-rough-wall.jpg" alt="Artifact" loading="lazy">
+                </div>
+                            </div>
+        </section>
+
+        <section class="pt-12 md:pt-24 border-t border-brand_black/10 reveal flex flex-col items-center gap-8 text-center">
+            <a href="index.html" class="inline-flex items-center gap-4 text-3xl md:text-5xl font-bold hover:text-brand_blue transition-all group italic">
+                BACK_HOME                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:translate-x-4 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+        </section>
+    </main>
+
+    <div id="gallery-modal">
+        <button onclick="closeGallery()" class="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-brand_blue transition-colors z-[1002] backdrop-blur-md">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="modal-content" onclick="closeGallery()"><img id="modal-img" src="" onclick="event.stopPropagation()"></div>
+        <div class="gallery-dock" id="dock">
+                        <div class="dock-item" onclick="setGalleryImage(0)" data-index="0"><img src="img/Website/A- Slider/COROS.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(1)" data-index="1"><img src="img/Website/A- Slider/PG01.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(2)" data-index="2"><img src="img/Website/A- Slider/PURELIGHT.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(3)" data-index="3"><img src="img/Website/A- Slider/RIVER 2 PRO.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(4)" data-index="4"><img src="img/Website/B- Featured Product Categories/ACCESSORIES-1.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(5)" data-index="5"><img src="img/Website/B- Featured Product Categories/ACCESSORIES.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(6)" data-index="6"><img src="img/Website/B- Featured Product Categories/APPAREL.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(7)" data-index="7"><img src="img/Website/B- Featured Product Categories/APPAREL_1.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(8)" data-index="8"><img src="img/Website/B- Featured Product Categories/APPAREL_2.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(9)" data-index="9"><img src="img/Website/B- Featured Product Categories/APPAREL_3.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(10)" data-index="10"><img src="img/Website/B- Featured Product Categories/FOOTWEAR.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(11)" data-index="11"><img src="img/Website/B- Featured Product Categories/FOOTWEAR_N.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(12)" data-index="12"><img src="img/Website/B- Featured Product Categories/OUTDOOR.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(13)" data-index="13"><img src="img/Website/B- Featured Product Categories/SPORT WATCH.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(14)" data-index="14"><img src="img/Website/B- Featured Product Categories/battery.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(15)" data-index="15"><img src="img/Website/B- Featured Product Categories/bmai.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(16)" data-index="16"><img src="img/Website/B- Featured Product Categories/nomad.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(17)" data-index="17"><img src="img/Website/B- Featured Product Categories/river 3.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(18)" data-index="18"><img src="img/Website/B- Featured Product Categories/run 3.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(19)" data-index="19"><img src="img/Website/B- Featured Product Categories/strap.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(20)" data-index="20"><img src="img/Website/B- Featured Product Categories/turbo.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(21)" data-index="21"><img src="img/Website/C- Unique Selling Point/Best Quality.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(22)" data-index="22"><img src="img/Website/C- Unique Selling Point/Customer Support.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(23)" data-index="23"><img src="img/Website/C- Unique Selling Point/free shipping.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(24)" data-index="24"><img src="img/Website/D- Product Highlight/Bmai.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(25)" data-index="25"><img src="img/Website/D- Product Highlight/Bmai_new.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(26)" data-index="26"><img src="img/Website/D- Product Highlight/Bmai_turbo.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(27)" data-index="27"><img src="img/Website/D- Product Highlight/Heart Rate Monitor.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(28)" data-index="28"><img src="img/Website/D- Product Highlight/Sport Bone Conduction Headphone-2.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(29)" data-index="29"><img src="img/Website/D- Product Highlight/Sport Bone Conduction Headphone.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(30)" data-index="30"><img src="img/Website/D- Product Highlight/Sport watch.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(31)" data-index="31"><img src="img/Website/D- Product Highlight/battery.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(32)" data-index="32"><img src="img/Website/D- Product Highlight/dura.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(33)" data-index="33"><img src="img/Website/D- Product Highlight/nomad watch.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(34)" data-index="34"><img src="img/Website/D- Product Highlight/power station.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(35)" data-index="35"><img src="img/Website/D- Product Highlight/river 3.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(36)" data-index="36"><img src="img/Website/D- Product Highlight/run 3.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(37)" data-index="37"><img src="img/Website/D- Product Highlight/smart devices.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(38)" data-index="38"><img src="img/Website/E- Special Highlight/BREATHABLE WRAPPED UPPER.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(39)" data-index="39"><img src="img/Website/E- Special Highlight/FLOWSOLE SYSTEM.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(40)" data-index="40"><img src="img/Website/E- Special Highlight/FOAM4+.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(41)" data-index="41"><img src="img/Website/E- Special Highlight/HEMP TECHNOLOGY INSOLES.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(42)" data-index="42"><img src="img/Website/E- Special Highlight/Image1.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(43)" data-index="43"><img src="img/Website/E- Special Highlight/Image2.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(44)" data-index="44"><img src="img/Website/E- Special Highlight/Image3.jpg"></div>
+                        <div class="dock-item" onclick="setGalleryImage(45)" data-index="45"><img src="img/Website/E- Special Highlight/Image4.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(46)" data-index="46"><img src="img/Website/E- Special Highlight/SUPER LITE RB.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(47)" data-index="47"><img src="img/Website/E- Special Highlight/WIDE SHOE LAST.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(48)" data-index="48"><img src="img/Website/Untitled-1.png"></div>
+                        <div class="dock-item" onclick="setGalleryImage(49)" data-index="49"><img src="img/Website/white-clean-rough-wall.jpg"></div>
+                    </div>
+    </div>
+
+    <script>
+        const galleryItems = [{"url":"img\/Website\/A- Slider\/COROS.png","span":"sm:col-span-2 sm:row-span-2"},{"url":"img\/Website\/A- Slider\/PG01.png","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/A- Slider\/PURELIGHT.png","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/A- Slider\/RIVER 2 PRO.png","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/B- Featured Product Categories\/ACCESSORIES-1.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/B- Featured Product Categories\/ACCESSORIES.jpg","span":"sm:col-span-2 sm:row-span-2"},{"url":"img\/Website\/B- Featured Product Categories\/APPAREL.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/B- Featured Product Categories\/APPAREL_1.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/B- Featured Product Categories\/APPAREL_2.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/B- Featured Product Categories\/APPAREL_3.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/B- Featured Product Categories\/FOOTWEAR.jpg","span":"sm:col-span-2 sm:row-span-2"},{"url":"img\/Website\/B- Featured Product Categories\/FOOTWEAR_N.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/B- Featured Product Categories\/OUTDOOR.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/B- Featured Product Categories\/SPORT WATCH.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/B- Featured Product Categories\/battery.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/B- Featured Product Categories\/bmai.jpg","span":"sm:col-span-2 sm:row-span-2"},{"url":"img\/Website\/B- Featured Product Categories\/nomad.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/B- Featured Product Categories\/river 3.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/B- Featured Product Categories\/run 3.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/B- Featured Product Categories\/strap.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/B- Featured Product Categories\/turbo.jpg","span":"sm:col-span-2 sm:row-span-2"},{"url":"img\/Website\/C- Unique Selling Point\/Best Quality.png","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/C- Unique Selling Point\/Customer Support.png","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/C- Unique Selling Point\/free shipping.png","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/D- Product Highlight\/Bmai.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/D- Product Highlight\/Bmai_new.jpg","span":"sm:col-span-2 sm:row-span-2"},{"url":"img\/Website\/D- Product Highlight\/Bmai_turbo.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/D- Product Highlight\/Heart Rate Monitor.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/D- Product Highlight\/Sport Bone Conduction Headphone-2.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/D- Product Highlight\/Sport Bone Conduction Headphone.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/D- Product Highlight\/Sport watch.jpg","span":"sm:col-span-2 sm:row-span-2"},{"url":"img\/Website\/D- Product Highlight\/battery.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/D- Product Highlight\/dura.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/D- Product Highlight\/nomad watch.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/D- Product Highlight\/power station.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/D- Product Highlight\/river 3.jpg","span":"sm:col-span-2 sm:row-span-2"},{"url":"img\/Website\/D- Product Highlight\/run 3.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/D- Product Highlight\/smart devices.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/E- Special Highlight\/BREATHABLE WRAPPED UPPER.png","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/E- Special Highlight\/FLOWSOLE SYSTEM.png","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/E- Special Highlight\/FOAM4+.png","span":"sm:col-span-2 sm:row-span-2"},{"url":"img\/Website\/E- Special Highlight\/HEMP TECHNOLOGY INSOLES.png","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/E- Special Highlight\/Image1.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/E- Special Highlight\/Image2.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/E- Special Highlight\/Image3.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/E- Special Highlight\/Image4.png","span":"sm:col-span-2 sm:row-span-2"},{"url":"img\/Website\/E- Special Highlight\/SUPER LITE RB.png","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/E- Special Highlight\/WIDE SHOE LAST.png","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/Website\/Untitled-1.png","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/Website\/white-clean-rough-wall.jpg","span":"sm:col-span-1 sm:row-span-1"}];
+        const modal = document.getElementById('gallery-modal');
+        const modalImg = document.getElementById('modal-img');
+        const dockItems = document.querySelectorAll('.dock-item');
+        function openGallery(index) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; setGalleryImage(index); }
+        function closeGallery() { modal.classList.remove('active'); document.body.style.overflow = ''; }
+        function setGalleryImage(index) {
+            modalImg.src = galleryItems[index].url;
+            dockItems.forEach(item => { item.classList.toggle('active', parseInt(item.dataset.index) === index); });
+            const activeItem = document.querySelector(`.dock-item[data-index="${index}"]`);
+            activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); }); }, { threshold: 0.05, rootMargin: '50px' });
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+        document.addEventListener('keydown', (e) => { if (!modal.classList.contains('active')) return; if (e.key === 'Escape') closeGallery(); });
+    </script>
+</body>
+</html>
