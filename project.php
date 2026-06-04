@@ -49,8 +49,8 @@ if (!$project) {
         .dock-item { width: 48px; height: 48px; border-radius: 0.75rem; overflow: hidden; cursor: pointer; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 2px solid transparent; opacity: 0.5; flex-shrink: 0; }
         .dock-item img { width: 100%; height: 100%; object-fit: cover; }
         .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-4px); }
-        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; }
-        .artifact-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; margin-bottom: 1rem; break-inside: avoid; }
+        .artifact-card img { width: 100%; height: auto; display: block; transition: transform 0.8s ease; }
         .artifact-card:hover img { transform: scale(1.05); }
         @media (max-width: 768px) { .header-floating { top: 1rem; gap: 1rem; padding: 0.4rem 0.4rem 0.4rem 1rem; } .gallery-dock { padding: 0.5rem; gap: 0.25rem; overflow-x: auto; justify-content: flex-start; } .dock-item { width: 36px; height: 36px; } }
     </style>
@@ -76,8 +76,8 @@ if (!$project) {
                     <?php echo htmlspecialchars($project['title']); ?>
                 </h1>
             </div>
-            <div class="aspect-[21/9] rounded-xl overflow-hidden bg-gray-200 reveal active shadow-lg">
-                <img src="<?php echo htmlspecialchars($project['cover_image']); ?>" alt="Cover" class="w-full h-full object-cover">
+            <div class="rounded-xl overflow-hidden bg-black/5 reveal active shadow-lg max-h-[80vh] flex items-center justify-center">
+                <img src="<?php echo htmlspecialchars($project['cover_image']); ?>" alt="Cover" class="w-full h-auto object-contain max-h-[80vh]">
             </div>
         </section>
 
@@ -98,9 +98,9 @@ if (!$project) {
                 <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40"><?php echo htmlspecialchars($project['detail']['gallery_title']); ?></h2>
                 <span class="text-[8px] md:text-xs font-bold opacity-20"><?php echo htmlspecialchars($project['detail']['gallery_status']); ?></span>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[150px] md:auto-rows-[250px]">
+            <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
                 <?php foreach ($project['detail']['gallery'] as $index => $item): ?>
-                <div class="artifact-card reveal <?php echo $item['span']; ?>" onclick="openGallery(<?php echo $index; ?>)">
+                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(<?php echo $index; ?>)">
                     <img src="<?php echo htmlspecialchars($item['url']); ?>" alt="Artifact" loading="lazy">
                 </div>
                 <?php endforeach; ?>

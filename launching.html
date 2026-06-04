@@ -31,8 +31,8 @@
         .dock-item { width: 48px; height: 48px; border-radius: 0.75rem; overflow: hidden; cursor: pointer; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 2px solid transparent; opacity: 0.5; flex-shrink: 0; }
         .dock-item img { width: 100%; height: 100%; object-fit: cover; }
         .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-4px); }
-        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; }
-        .artifact-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; margin-bottom: 1rem; break-inside: avoid; }
+        .artifact-card img { width: 100%; height: auto; display: block; transition: transform 0.8s ease; }
         .artifact-card:hover img { transform: scale(1.05); }
         @media (max-width: 768px) { .header-floating { top: 1rem; gap: 1rem; padding: 0.4rem 0.4rem 0.4rem 1rem; } .gallery-dock { padding: 0.5rem; gap: 0.25rem; overflow-x: auto; justify-content: flex-start; } .dock-item { width: 36px; height: 36px; } }
     </style>
@@ -56,8 +56,8 @@
                 <h1 class="text-5xl md:text-8xl lg:text-[8vw] font-bold tracking-tighter leading-none">
                     Launching                </h1>
             </div>
-            <div class="aspect-[21/9] rounded-xl overflow-hidden bg-gray-200 reveal active shadow-lg">
-                <img src="img/launching/dealer-img (11).jpeg" alt="Cover" class="w-full h-full object-cover">
+            <div class="rounded-xl overflow-hidden bg-black/5 reveal active shadow-lg max-h-[80vh] flex items-center justify-center">
+                <img src="img/launching/dealer-img (11).jpeg" alt="Cover" class="w-full h-auto object-contain max-h-[80vh]">
             </div>
         </section>
 
@@ -77,26 +77,26 @@
                 <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40">_Interactive_Gallery</h2>
                 <span class="text-[8px] md:text-xs font-bold opacity-20">STABLE_BUILD</span>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[150px] md:auto-rows-[250px]">
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(0)">
+            <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(0)">
                     <img src="img/launching/dealer-img (11).jpeg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(1)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(1)">
                     <img src="img/launching/dealer-img (12).jpeg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(2)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(2)">
                     <img src="img/launching/dealer-img (13).jpeg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(3)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(3)">
                     <img src="img/launching/dealer-img (15).jpeg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(4)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(4)">
                     <img src="img/launching/dealer-img (16).jpeg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(5)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(5)">
                     <img src="img/launching/dealer-img (17).jpeg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(6)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(6)">
                     <img src="img/launching/dealer-img (19).jpeg" alt="Artifact" loading="lazy">
                 </div>
                             </div>
