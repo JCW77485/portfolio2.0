@@ -31,8 +31,8 @@
         .dock-item { width: 48px; height: 48px; border-radius: 0.75rem; overflow: hidden; cursor: pointer; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 2px solid transparent; opacity: 0.5; flex-shrink: 0; }
         .dock-item img { width: 100%; height: 100%; object-fit: cover; }
         .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-4px); }
-        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; }
-        .artifact-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; margin-bottom: 1rem; break-inside: avoid; }
+        .artifact-card img { width: 100%; height: auto; display: block; transition: transform 0.8s ease; }
         .artifact-card:hover img { transform: scale(1.05); }
         @media (max-width: 768px) { .header-floating { top: 1rem; gap: 1rem; padding: 0.4rem 0.4rem 0.4rem 1rem; } .gallery-dock { padding: 0.5rem; gap: 0.25rem; overflow-x: auto; justify-content: flex-start; } .dock-item { width: 36px; height: 36px; } }
     </style>
@@ -56,8 +56,8 @@
                 <h1 class="text-5xl md:text-8xl lg:text-[8vw] font-bold tracking-tighter leading-none">
                     Ecomm                </h1>
             </div>
-            <div class="aspect-[21/9] rounded-xl overflow-hidden bg-gray-200 reveal active shadow-lg">
-                <img src="img/ecomm/MAIN(1).jpg" alt="Cover" class="w-full h-full object-cover">
+            <div class="rounded-xl overflow-hidden bg-black/5 reveal active shadow-lg max-h-[80vh] flex items-center justify-center">
+                <img src="img/ecomm/MAIN(1).jpg" alt="Cover" class="w-full h-auto object-contain max-h-[80vh]">
             </div>
         </section>
 
@@ -77,125 +77,125 @@
                 <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40">_Interactive_Gallery</h2>
                 <span class="text-[8px] md:text-xs font-bold opacity-20">STABLE_BUILD</span>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[150px] md:auto-rows-[250px]">
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(0)">
+            <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(0)">
                     <img src="img/ecomm/20.4 lazlive.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(1)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(1)">
                     <img src="img/ecomm/3.3 banner.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(2)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(2)">
                     <img src="img/ecomm/3.3-LAZ-1.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(3)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(3)">
                     <img src="img/ecomm/6.6_001.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(4)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(4)">
                     <img src="img/ecomm/6.6_002.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(5)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(5)">
                     <img src="img/ecomm/6.6_003.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(6)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(6)">
                     <img src="img/ecomm/6.6_004.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(7)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(7)">
                     <img src="img/ecomm/7 days free return.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(8)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(8)">
                     <img src="img/ecomm/8.8.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(9)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(9)">
                     <img src="img/ecomm/APEX 2 NEW PRICE.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(10)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(10)">
                     <img src="img/ecomm/APEX 2 PRO GREEN.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(11)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(11)">
                     <img src="img/ecomm/APEX 2 PRO(1).jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(12)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(12)">
                     <img src="img/ecomm/APEX 2.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(13)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(13)">
                     <img src="img/ecomm/APEX 2_Media 2.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(14)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(14)">
                     <img src="img/ecomm/Apex 2 pro.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(15)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(15)">
                     <img src="img/ecomm/Apr4_SellerAds_SingleBanner.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(16)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(16)">
                     <img src="img/ecomm/EL 960 banner.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(17)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(17)">
                     <img src="img/ecomm/FREE T SHIRT.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(18)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(18)">
                     <img src="img/ecomm/Image_20230601140058.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(19)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(19)">
                     <img src="img/ecomm/MAIN(1).jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(20)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(20)">
                     <img src="img/ecomm/MAIN-min.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(21)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(21)">
                     <img src="img/ecomm/MAIN.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(22)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(22)">
                     <img src="img/ecomm/PACE 2-min.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(23)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(23)">
                     <img src="img/ecomm/PACE 2.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(24)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(24)">
                     <img src="img/ecomm/RAMADAN.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(25)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(25)">
                     <img src="img/ecomm/RAYA-2.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(26)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(26)">
                     <img src="img/ecomm/RAYA-3.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(27)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(27)">
                     <img src="img/ecomm/RAYA-4.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(28)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(28)">
                     <img src="img/ecomm/STAND-A-CHANCE.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(29)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(29)">
                     <img src="img/ecomm/Untitled-2.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(30)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(30)">
                     <img src="img/ecomm/VERTIX 2(1).jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(31)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(31)">
                     <img src="img/ecomm/banner.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(32)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(32)">
                     <img src="img/ecomm/clothes.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(33)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(33)">
                     <img src="img/ecomm/lazada 2.2 banner.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(34)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(34)">
                     <img src="img/ecomm/lazada 3.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(35)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(35)">
                     <img src="img/ecomm/less than 2mb.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-2 sm:row-span-1" onclick="openGallery(36)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(36)">
                     <img src="img/ecomm/techmania 10801x080.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(37)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(37)">
                     <img src="img/ecomm/techmania biggest size.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(38)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(38)">
                     <img src="img/ecomm/vertix 2.jpg" alt="Artifact" loading="lazy">
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(39)">
+                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(39)">
                     <img src="img/ecomm/women day 001.jpg" alt="Artifact" loading="lazy">
                 </div>
                             </div>
