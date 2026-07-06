@@ -27,7 +27,7 @@ $config = [
         'prefix' => 'SUBJECT_01 // Senior Graphic Designer',
         'name' => 'YAU GIAK KIAN',
         'bio_short' => 'Creative Graphic Designer with over 3 years of experience in retail branding and digital content. Based in Kuala Lumpur, Malaysia.',
-        'profile_image' => 'https://framerusercontent.com/images/6Jms3yt4XRdWgbQCYtOCFcdaKw.jpeg?width=1877&height=2400',
+        'profile_image' => 'img/WhatsApp Image 2026-06-04 at 10.05.42 PM.jpeg',
         'cta_label' => 'SCROLL_FOR_INTEL',
     ],
 
@@ -313,9 +313,13 @@ $config = [
             'detail' => [
                 'tagline' => 'PROCESS_LOG // v1.0',
                 'mission_title' => '_The Mission',
-                'description' => 'This project showcases our work for pace 4 jacob. It includes various design assets and marketing materials created to achieve specific brand goals.',
+                'description' => 'Pace 4 Jacob is presented with a product description focus, highlighting the campaign direction, creative concept, and launch materials.',
                 'gallery_title' => '_Interactive_Gallery',
                 'gallery_status' => 'STABLE_BUILD',
+                'tabs' => [
+                    ['id' => 'description', 'label' => 'Product Description', 'content_type' => 'gallery'],
+                    ['id' => 'poster', 'label' => 'Product Launch Poster', 'content_type' => 'image', 'image_url' => 'img/pace 4 jacob/Function Carousel/Artboard 0.jpg']
+                ],
                 'gallery' => [
                     ['url' => 'img/pace 4 jacob/Function Carousel/Artboard 0.jpg', 'span' => 'sm:col-span-1 sm:row-span-1'],
                     ['url' => 'img/pace 4 jacob/Function Carousel/Artboard 1.jpg', 'span' => 'sm:col-span-1 sm:row-span-1'],

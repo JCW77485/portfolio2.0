@@ -50,8 +50,11 @@ if (!$project) {
         .dock-item img { width: 100%; height: 100%; object-fit: contain; }
         .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-4px); }
         .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; }
-        .artifact-card img { width: 100%; height: auto; object-fit: contain; transition: transform 0.8s ease; display: block; }
+        .artifact-card img { width: 100%; height: auto; transition: transform 0.8s ease; display: block; }
         .artifact-card:hover img { transform: scale(1.05); }
+        .tab-btn { padding: 0.75rem 1.25rem; border-radius: 9999px; border: 1px solid rgba(0, 0, 0, 0.08); background: #ffffff; color: #191919; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
+        .tab-btn.active { background: #0057ff; color: #ffffff; border-color: #0057ff; }
+        .tab-panel.hidden { display: none; }
         @media (max-width: 768px) { .header-floating { top: 1rem; gap: 1rem; padding: 0.4rem 0.4rem 0.4rem 1rem; } .gallery-dock { padding: 0.5rem; gap: 0.25rem; overflow-x: auto; justify-content: flex-start; } .dock-item { width: 36px; height: 36px; } }
     </style>
 </head>
@@ -76,8 +79,8 @@ if (!$project) {
                     <?php echo htmlspecialchars($project['title']); ?>
                 </h1>
             </div>
-            <div class="rounded-xl overflow-hidden bg-black/5 reveal active shadow-lg max-h-[80vh] flex items-center justify-center">
-                <img src="<?php echo htmlspecialchars($project['cover_image']); ?>" alt="Cover" class="w-full h-auto object-contain max-h-[80vh]">
+            <div class="rounded-xl overflow-hidden bg-black/5 reveal active shadow-lg flex items-center justify-center">
+                <img src="<?php echo htmlspecialchars($project['cover_image']); ?>" alt="Cover" class="w-full h-auto">
             </div>
         </section>
 
@@ -94,17 +97,48 @@ if (!$project) {
         </section>
 
         <section class="space-y-8 md:space-y-12">
-            <div class="flex items-center justify-between reveal">
-                <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40"><?php echo htmlspecialchars($project['detail']['gallery_title']); ?></h2>
-                <span class="text-[8px] md:text-xs font-bold opacity-20"><?php echo htmlspecialchars($project['detail']['gallery_status']); ?></span>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <?php foreach ($project['detail']['gallery'] as $index => $item): ?>
-                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(<?php echo $index; ?>)">
-                    <img src="<?php echo htmlspecialchars($item['url']); ?>" alt="Artifact" loading="lazy">
+            <?php if (isset($project['detail']['tabs'])): ?>
+            <div class="space-y-6 reveal">
+                <div class="flex flex-wrap gap-3 border border-black/10 rounded-full bg-white/80 p-1">
+                    <?php foreach ($project['detail']['tabs'] as $index => $tab): ?>
+                    <button type="button" class="tab-btn <?php echo $index === 0 ? 'active' : ''; ?>" data-tab="<?php echo htmlspecialchars($tab['id']); ?>"><?php echo htmlspecialchars($tab['label']); ?></button>
+                    <?php endforeach; ?>
+                </div>
+                <?php foreach ($project['detail']['tabs'] as $index => $tab): ?>
+                <div id="tab-<?php echo htmlspecialchars($tab['id']); ?>" class="tab-panel <?php echo $index === 0 ? '' : 'hidden'; ?> space-y-8">
+                    <?php if ($tab['content_type'] === 'gallery'): ?>
+                        <div class="flex items-center justify-between reveal">
+                            <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40"><?php echo htmlspecialchars($project['detail']['gallery_title']); ?></h2>
+                            <span class="text-[8px] md:text-xs font-bold opacity-20"><?php echo htmlspecialchars($project['detail']['gallery_status']); ?></span>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <?php foreach ($project['detail']['gallery'] as $gIndex => $item): ?>
+                            <div class="artifact-card reveal <?php echo htmlspecialchars($item['span'] ?? ''); ?>" onclick="openGallery(<?php echo $gIndex; ?>)">
+                                <img src="<?php echo htmlspecialchars($item['url']); ?>" alt="Artifact" loading="lazy" class="w-full h-auto">
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php elseif ($tab['content_type'] === 'image'): ?>
+                        <div class="rounded-3xl overflow-hidden border border-black/10 bg-white shadow-sm">
+                            <img src="<?php echo htmlspecialchars($tab['image_url']); ?>" alt="<?php echo htmlspecialchars($tab['label']); ?>" class="w-full h-auto">
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <?php endforeach; ?>
             </div>
+            <?php else: ?>
+                <div class="flex items-center justify-between reveal">
+                    <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40"><?php echo htmlspecialchars($project['detail']['gallery_title']); ?></h2>
+                    <span class="text-[8px] md:text-xs font-bold opacity-20"><?php echo htmlspecialchars($project['detail']['gallery_status']); ?></span>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <?php foreach ($project['detail']['gallery'] as $index => $item): ?>
+                    <div class="artifact-card reveal <?php echo htmlspecialchars($item['span'] ?? ''); ?>" onclick="openGallery(<?php echo $index; ?>)">
+                        <img src="<?php echo htmlspecialchars($item['url']); ?>" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
         </section>
 
         <section class="pt-12 md:pt-24 border-t border-brand_black/10 reveal flex flex-col items-center gap-8 text-center">
@@ -132,6 +166,15 @@ if (!$project) {
         const modal = document.getElementById('gallery-modal');
         const modalImg = document.getElementById('modal-img');
         const dockItems = document.querySelectorAll('.dock-item');
+
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+        function activateTab(tabName) {
+            tabButtons.forEach(button => button.classList.toggle('active', button.dataset.tab === tabName));
+            tabPanels.forEach(panel => panel.classList.toggle('hidden', panel.id !== `tab-${tabName}`));
+        }
+        tabButtons.forEach(button => button.addEventListener('click', () => activateTab(button.dataset.tab)));
+
         function openGallery(index) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; setGalleryImage(index); }
         function closeGallery() { modal.classList.remove('active'); document.body.style.overflow = ''; }
         function setGalleryImage(index) {
