@@ -31,12 +31,12 @@
         .dock-item { width: 48px; height: 48px; border-radius: 0.75rem; overflow: hidden; cursor: pointer; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 2px solid transparent; opacity: 0.5; flex-shrink: 0; }
         .dock-item img { width: 100%; height: 100%; object-fit: contain; }
         .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-4px); }
+        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; cursor: pointer; break-inside: avoid; }
+        .artifact-card img { width: 100%; height: auto; transition: transform 0.8s ease; display: block; border-radius: 1rem; }
+        .artifact-card:hover img { transform: scale(1.05); }
         .tab-btn { padding: 0.75rem 1.25rem; border-radius: 9999px; border: 1px solid rgba(0, 0, 0, 0.08); background: #ffffff; color: #191919; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
         .tab-btn.active { background: #0057ff; color: #ffffff; border-color: #0057ff; }
         .tab-panel.hidden { display: none; }
-        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; }
-        .artifact-card img { width: 100%; height: auto; object-fit: contain; transition: transform 0.8s ease; display: block; }
-        .artifact-card:hover img { transform: scale(1.05); }
         @media (max-width: 768px) { .header-floating { top: 1rem; gap: 1rem; padding: 0.4rem 0.4rem 0.4rem 1rem; } .gallery-dock { padding: 0.5rem; gap: 0.25rem; overflow-x: auto; justify-content: flex-start; } .dock-item { width: 36px; height: 36px; } }
     </style>
 </head>
@@ -59,8 +59,8 @@
                 <h1 class="text-5xl md:text-8xl lg:text-[8vw] font-bold tracking-tighter leading-none">
                     Pace 4 Jacob                </h1>
             </div>
-            <div class="rounded-xl overflow-hidden bg-black/5 reveal active shadow-lg max-h-[80vh] flex items-center justify-center">
-                <img src="img/pace 4 jacob/Function Carousel/Artboard 0.jpg" alt="Cover" class="w-full h-auto object-contain max-h-[80vh]">
+            <div class="rounded-xl overflow-hidden bg-black/5 reveal active shadow-lg flex items-center justify-center">
+                <img src="img/pace 4 jacob/Function Carousel/Artboard 0.jpg" alt="Cover" class="w-full h-auto">
             </div>
         </section>
 
@@ -71,62 +71,58 @@
             </div>
             <div class="lg:col-span-8">
                 <p class="text-xl md:text-4xl font-semibold leading-snug md:leading-tight text-brand_black">
-                    This project showcases our work for pace 4 jacob. It includes various design assets and marketing materials created to achieve specific brand goals.                </p>
+                    Pace 4 Jacob is presented with a product description focus, highlighting the campaign direction, creative concept, and launch materials.                </p>
             </div>
         </section>
 
         <section class="space-y-8 md:space-y-12">
-            <div class="space-y-6 reveal">
+                        <div class="space-y-6 reveal">
                 <div class="flex flex-wrap gap-3 border border-black/10 rounded-full bg-white/80 p-1">
-                    <button type="button" class="tab-btn active" data-tab="description">Product Description</button>
-                    <button type="button" class="tab-btn" data-tab="poster">Product Launch Poster</button>
-                </div>
-                <div id="tab-description" class="tab-panel space-y-4">
-                    <p class="text-xl md:text-3xl font-semibold leading-snug md:leading-tight text-brand_black">
-                        Pace 4 Jacob is presented with a product description focus, highlighting the campaign direction, creative concept, and launch materials.
-                    </p>
-                    
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(0)">
-                    <img src="img/pace 4 jacob/Function Carousel/Artboard 0.jpg" alt="Artifact" loading="lazy">
-                </div>
-                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(1)">
-                    <img src="img/pace 4 jacob/Function Carousel/Artboard 1.jpg" alt="Artifact" loading="lazy">
-                </div>
-                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(2)">
-                    <img src="img/pace 4 jacob/Function Carousel/Artboard 2.jpg" alt="Artifact" loading="lazy">
-                </div>
-                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(3)">
-                    <img src="img/pace 4 jacob/Function Carousel/Artboard 3.jpg" alt="Artifact" loading="lazy">
-                </div>
-                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(4)">
-                    <img src="img/pace 4 jacob/Function Carousel/Artboard 4.jpg" alt="Artifact" loading="lazy">
-                </div>
-                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(5)">
-                    <img src="img/pace 4 jacob/Function Carousel/Artboard 5.jpg" alt="Artifact" loading="lazy">
-                </div>
-                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(6)">
-                    <img src="img/pace 4 jacob/Function Carousel/Artboard 6.jpg" alt="Artifact" loading="lazy">
-                </div>
-                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(7)">
-                    <img src="img/pace 4 jacob/Price announ.jpg" alt="Artifact" loading="lazy">
-                </div>
-                                <div class="artifact-card reveal inline-block w-full" onclick="openGallery(8)">
-                    <img src="img/pace 4 jacob/Teaser.jpg" alt="Artifact" loading="lazy">
-                </div>
+                                        <button type="button" class="tab-btn active" data-tab="description">Product Description</button>
+                                        <button type="button" class="tab-btn " data-tab="poster">Product Launch Poster</button>
+                                    </div>
+                                <div id="tab-description" class="tab-panel  space-y-8">
+                                            <div class="flex items-center justify-between reveal">
+                            <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40">_Interactive_Gallery</h2>
+                            <span class="text-[8px] md:text-xs font-bold opacity-20">STABLE_BUILD</span>
+                        </div>
+                        <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                                                        <div class="artifact-card reveal mb-4" onclick="openGallery(0)">
+                                <img src="img/pace 4 jacob/Function Carousel/Artboard 0.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
                             </div>
-                </div>
-                <div id="tab-poster" class="tab-panel hidden">
-                    <div class="rounded-3xl overflow-hidden border border-black/10 bg-white shadow-sm">
-                        <img src="img/pace 4 jacob/Function Carousel/Artboard 0.jpg" alt="Product Launch Poster" class="w-full h-auto object-cover">
-                    </div>
-                </div>
-            </div>
-            <div class="flex items-center justify-between reveal">
-                <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40">_Interactive_Gallery</h2>
-                <span class="text-[8px] md:text-xs font-bold opacity-20">STABLE_BUILD</span>
-            </div>
-        </section>
+                                                        <div class="artifact-card reveal mb-4" onclick="openGallery(1)">
+                                <img src="img/pace 4 jacob/Function Carousel/Artboard 1.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                            </div>
+                                                        <div class="artifact-card reveal mb-4" onclick="openGallery(2)">
+                                <img src="img/pace 4 jacob/Function Carousel/Artboard 2.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                            </div>
+                                                        <div class="artifact-card reveal mb-4" onclick="openGallery(3)">
+                                <img src="img/pace 4 jacob/Function Carousel/Artboard 3.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                            </div>
+                                                        <div class="artifact-card reveal mb-4" onclick="openGallery(4)">
+                                <img src="img/pace 4 jacob/Function Carousel/Artboard 4.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                            </div>
+                                                        <div class="artifact-card reveal mb-4" onclick="openGallery(5)">
+                                <img src="img/pace 4 jacob/Function Carousel/Artboard 5.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                            </div>
+                                                        <div class="artifact-card reveal mb-4" onclick="openGallery(6)">
+                                <img src="img/pace 4 jacob/Function Carousel/Artboard 6.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                            </div>
+                                                        <div class="artifact-card reveal mb-4" onclick="openGallery(7)">
+                                <img src="img/pace 4 jacob/Price announ.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                            </div>
+                                                        <div class="artifact-card reveal mb-4" onclick="openGallery(8)">
+                                <img src="img/pace 4 jacob/Teaser.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                            </div>
+                                                    </div>
+                                    </div>
+                                <div id="tab-poster" class="tab-panel hidden space-y-8">
+                                            <div class="rounded-3xl overflow-hidden border border-black/10 bg-white shadow-sm">
+                            <img src="img/pace 4 jacob/Function Carousel/Artboard 0.jpg" alt="Product Launch Poster" class="w-full h-auto">
+                        </div>
+                                    </div>
+                            </div>
+                    </section>
 
         <section class="pt-12 md:pt-24 border-t border-brand_black/10 reveal flex flex-col items-center gap-8 text-center">
             <a href="index.html" class="inline-flex items-center gap-4 text-3xl md:text-5xl font-bold hover:text-brand_blue transition-all group italic">
@@ -154,10 +150,11 @@
     </div>
 
     <script>
-        const galleryItems = [{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 0.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 1.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 2.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 3.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 4.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 5.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 6.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/pace 4 jacob\/Price announ.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/pace 4 jacob\/Teaser.jpg","span":"sm:col-span-1 sm:row-span-1"}];
+        const galleryItems = [{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 0.jpg"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 1.jpg"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 2.jpg"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 3.jpg"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 4.jpg"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 5.jpg"},{"url":"img\/pace 4 jacob\/Function Carousel\/Artboard 6.jpg"},{"url":"img\/pace 4 jacob\/Price announ.jpg"},{"url":"img\/pace 4 jacob\/Teaser.jpg"}];
         const modal = document.getElementById('gallery-modal');
         const modalImg = document.getElementById('modal-img');
         const dockItems = document.querySelectorAll('.dock-item');
+
         const tabButtons = document.querySelectorAll('.tab-btn');
         const tabPanels = document.querySelectorAll('.tab-panel');
         function activateTab(tabName) {
@@ -165,7 +162,7 @@
             tabPanels.forEach(panel => panel.classList.toggle('hidden', panel.id !== `tab-${tabName}`));
         }
         tabButtons.forEach(button => button.addEventListener('click', () => activateTab(button.dataset.tab)));
-        activateTab('description');
+
         function openGallery(index) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; setGalleryImage(index); }
         function closeGallery() { modal.classList.remove('active'); document.body.style.overflow = ''; }
         function setGalleryImage(index) {

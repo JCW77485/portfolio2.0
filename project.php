@@ -49,8 +49,8 @@ if (!$project) {
         .dock-item { width: 48px; height: 48px; border-radius: 0.75rem; overflow: hidden; cursor: pointer; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 2px solid transparent; opacity: 0.5; flex-shrink: 0; }
         .dock-item img { width: 100%; height: 100%; object-fit: contain; }
         .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-4px); }
-        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; }
-        .artifact-card img { width: 100%; height: auto; transition: transform 0.8s ease; display: block; }
+        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; cursor: pointer; break-inside: avoid; }
+        .artifact-card img { width: 100%; height: auto; transition: transform 0.8s ease; display: block; border-radius: 1rem; }
         .artifact-card:hover img { transform: scale(1.05); }
         .tab-btn { padding: 0.75rem 1.25rem; border-radius: 9999px; border: 1px solid rgba(0, 0, 0, 0.08); background: #ffffff; color: #191919; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
         .tab-btn.active { background: #0057ff; color: #ffffff; border-color: #0057ff; }
@@ -111,9 +111,9 @@ if (!$project) {
                             <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40"><?php echo htmlspecialchars($project['detail']['gallery_title']); ?></h2>
                             <span class="text-[8px] md:text-xs font-bold opacity-20"><?php echo htmlspecialchars($project['detail']['gallery_status']); ?></span>
                         </div>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                             <?php foreach ($project['detail']['gallery'] as $gIndex => $item): ?>
-                            <div class="artifact-card reveal <?php echo htmlspecialchars($item['span'] ?? ''); ?>" onclick="openGallery(<?php echo $gIndex; ?>)">
+                            <div class="artifact-card reveal mb-4" onclick="openGallery(<?php echo $gIndex; ?>)">
                                 <img src="<?php echo htmlspecialchars($item['url']); ?>" alt="Artifact" loading="lazy" class="w-full h-auto">
                             </div>
                             <?php endforeach; ?>
@@ -131,9 +131,9 @@ if (!$project) {
                     <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40"><?php echo htmlspecialchars($project['detail']['gallery_title']); ?></h2>
                     <span class="text-[8px] md:text-xs font-bold opacity-20"><?php echo htmlspecialchars($project['detail']['gallery_status']); ?></span>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                     <?php foreach ($project['detail']['gallery'] as $index => $item): ?>
-                    <div class="artifact-card reveal <?php echo htmlspecialchars($item['span'] ?? ''); ?>" onclick="openGallery(<?php echo $index; ?>)">
+                    <div class="artifact-card reveal mb-4" onclick="openGallery(<?php echo $index; ?>)">
                         <img src="<?php echo htmlspecialchars($item['url']); ?>" alt="Artifact" loading="lazy" class="w-full h-auto">
                     </div>
                     <?php endforeach; ?>

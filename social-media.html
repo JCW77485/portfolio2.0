@@ -31,9 +31,12 @@
         .dock-item { width: 48px; height: 48px; border-radius: 0.75rem; overflow: hidden; cursor: pointer; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); border: 2px solid transparent; opacity: 0.5; flex-shrink: 0; }
         .dock-item img { width: 100%; height: 100%; object-fit: contain; }
         .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-4px); }
-        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; }
-        .artifact-card img { width: 100%; height: auto; object-fit: contain; transition: transform 0.8s ease; display: block; }
+        .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; cursor: pointer; break-inside: avoid; }
+        .artifact-card img { width: 100%; height: auto; transition: transform 0.8s ease; display: block; border-radius: 1rem; }
         .artifact-card:hover img { transform: scale(1.05); }
+        .tab-btn { padding: 0.75rem 1.25rem; border-radius: 9999px; border: 1px solid rgba(0, 0, 0, 0.08); background: #ffffff; color: #191919; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
+        .tab-btn.active { background: #0057ff; color: #ffffff; border-color: #0057ff; }
+        .tab-panel.hidden { display: none; }
         @media (max-width: 768px) { .header-floating { top: 1rem; gap: 1rem; padding: 0.4rem 0.4rem 0.4rem 1rem; } .gallery-dock { padding: 0.5rem; gap: 0.25rem; overflow-x: auto; justify-content: flex-start; } .dock-item { width: 36px; height: 36px; } }
     </style>
 </head>
@@ -73,103 +76,103 @@
         </section>
 
         <section class="space-y-8 md:space-y-12">
-            <div class="flex items-center justify-between reveal">
-                <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40">_Interactive_Gallery</h2>
-                <span class="text-[8px] md:text-xs font-bold opacity-20">STABLE_BUILD</span>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(0)">
-                    <img src="img/social media/0 result cover.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                            <div class="flex items-center justify-between reveal">
+                    <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40">_Interactive_Gallery</h2>
+                    <span class="text-[8px] md:text-xs font-bold opacity-20">STABLE_BUILD</span>
                 </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(1)">
-                    <img src="img/social media/1 HAZIQ.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(2)">
-                    <img src="img/social media/CHINESE NEW YEAR 1.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(3)">
-                    <img src="img/social media/Fit Malaysia Posting_01 [change date].jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(4)">
-                    <img src="img/social media/Fit Malaysia Posting_05 [change date].jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(5)">
-                    <img src="img/social media/HILL REPEAT x TRD.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(6)">
-                    <img src="img/social media/Image_20230325232228.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(7)">
-                    <img src="img/social media/KLSCM 960 x 960(4).jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(8)">
-                    <img src="img/social media/Kickstarting the Run 960.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(9)">
-                    <img src="img/social media/Kickstarting the Run.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(10)">
-                    <img src="img/social media/MERDEKA 2024 coros.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(11)">
-                    <img src="img/social media/Roll up bunting 85 x 200CM.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(12)">
-                    <img src="img/social media/SCB Credit Card 2.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(13)">
-                    <img src="img/social media/b7d556797138f9cdf3e7b475a9d9825.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(14)">
-                    <img src="img/social media/bmai winner result.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(15)">
-                    <img src="img/social media/christmas_1.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(16)">
-                    <img src="img/social media/duo highway(rise to dhc) _1.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(17)">
-                    <img src="img/social media/image2 PHONE.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(18)">
-                    <img src="img/social media/ironbound bmai.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(19)">
-                    <img src="img/social media/ironbound coros.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(20)">
-                    <img src="img/social media/pace 2 berlin.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(21)">
-                    <img src="img/social media/pace 4 Black crystal 2.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(22)">
-                    <img src="img/social media/pace 4 Black crystal.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(23)">
-                    <img src="img/social media/platform banner.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(24)">
-                    <img src="img/social media/run-mudhan streak 100km.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(25)">
-                    <img src="img/social media/the goat KJ.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(26)">
-                    <img src="img/social media/we are hiring 2425-1.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(27)">
-                    <img src="img/social media/we are hiring 2425-2.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(28)">
-                    <img src="img/social media/we are hiring 2425-3.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                                <div class="artifact-card reveal sm:col-span-1 sm:row-span-2" onclick="openGallery(29)">
-                    <img src="img/social media/winner announcement.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
-                </div>
-                            </div>
-        </section>
+                <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(0)">
+                        <img src="img/social media/0 result cover.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(1)">
+                        <img src="img/social media/1 HAZIQ.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(2)">
+                        <img src="img/social media/CHINESE NEW YEAR 1.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(3)">
+                        <img src="img/social media/Fit Malaysia Posting_01 [change date].jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(4)">
+                        <img src="img/social media/Fit Malaysia Posting_05 [change date].jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(5)">
+                        <img src="img/social media/HILL REPEAT x TRD.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(6)">
+                        <img src="img/social media/Image_20230325232228.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(7)">
+                        <img src="img/social media/KLSCM 960 x 960(4).jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(8)">
+                        <img src="img/social media/Kickstarting the Run 960.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(9)">
+                        <img src="img/social media/Kickstarting the Run.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(10)">
+                        <img src="img/social media/MERDEKA 2024 coros.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(11)">
+                        <img src="img/social media/Roll up bunting 85 x 200CM.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(12)">
+                        <img src="img/social media/SCB Credit Card 2.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(13)">
+                        <img src="img/social media/b7d556797138f9cdf3e7b475a9d9825.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(14)">
+                        <img src="img/social media/bmai winner result.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(15)">
+                        <img src="img/social media/christmas_1.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(16)">
+                        <img src="img/social media/duo highway(rise to dhc) _1.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(17)">
+                        <img src="img/social media/image2 PHONE.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(18)">
+                        <img src="img/social media/ironbound bmai.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(19)">
+                        <img src="img/social media/ironbound coros.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(20)">
+                        <img src="img/social media/pace 2 berlin.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(21)">
+                        <img src="img/social media/pace 4 Black crystal 2.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(22)">
+                        <img src="img/social media/pace 4 Black crystal.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(23)">
+                        <img src="img/social media/platform banner.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(24)">
+                        <img src="img/social media/run-mudhan streak 100km.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(25)">
+                        <img src="img/social media/the goat KJ.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(26)">
+                        <img src="img/social media/we are hiring 2425-1.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(27)">
+                        <img src="img/social media/we are hiring 2425-2.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(28)">
+                        <img src="img/social media/we are hiring 2425-3.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                        <div class="artifact-card reveal mb-4" onclick="openGallery(29)">
+                        <img src="img/social media/winner announcement.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
+                    </div>
+                                    </div>
+                    </section>
 
         <section class="pt-12 md:pt-24 border-t border-brand_black/10 reveal flex flex-col items-center gap-8 text-center">
             <a href="index.html" class="inline-flex items-center gap-4 text-3xl md:text-5xl font-bold hover:text-brand_blue transition-all group italic">
@@ -218,10 +221,19 @@
     </div>
 
     <script>
-        const galleryItems = [{"url":"img\/social media\/0 result cover.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/1 HAZIQ.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/CHINESE NEW YEAR 1.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/Fit Malaysia Posting_01 [change date].jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/Fit Malaysia Posting_05 [change date].jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/HILL REPEAT x TRD.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/Image_20230325232228.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/social media\/KLSCM 960 x 960(4).jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/Kickstarting the Run 960.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/Kickstarting the Run.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/MERDEKA 2024 coros.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/Roll up bunting 85 x 200CM.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/SCB Credit Card 2.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/b7d556797138f9cdf3e7b475a9d9825.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/bmai winner result.jpg","span":"sm:col-span-1 sm:row-span-2"},{"url":"img\/social media\/christmas_1.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/duo highway(rise to dhc) _1.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/image2 PHONE.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/ironbound bmai.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/ironbound coros.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/pace 2 berlin.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/pace 4 Black crystal 2.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/pace 4 Black crystal.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/platform banner.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/run-mudhan streak 100km.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/the goat KJ.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/we are hiring 2425-1.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/we are hiring 2425-2.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/we are hiring 2425-3.jpg","span":"sm:col-span-1 sm:row-span-1"},{"url":"img\/social media\/winner announcement.jpg","span":"sm:col-span-1 sm:row-span-2"}];
+        const galleryItems = [{"url":"img\/social media\/0 result cover.jpg"},{"url":"img\/social media\/1 HAZIQ.jpg"},{"url":"img\/social media\/CHINESE NEW YEAR 1.jpg"},{"url":"img\/social media\/Fit Malaysia Posting_01 [change date].jpg"},{"url":"img\/social media\/Fit Malaysia Posting_05 [change date].jpg"},{"url":"img\/social media\/HILL REPEAT x TRD.jpg"},{"url":"img\/social media\/Image_20230325232228.jpg"},{"url":"img\/social media\/KLSCM 960 x 960(4).jpg"},{"url":"img\/social media\/Kickstarting the Run 960.jpg"},{"url":"img\/social media\/Kickstarting the Run.jpg"},{"url":"img\/social media\/MERDEKA 2024 coros.jpg"},{"url":"img\/social media\/Roll up bunting 85 x 200CM.jpg"},{"url":"img\/social media\/SCB Credit Card 2.jpg"},{"url":"img\/social media\/b7d556797138f9cdf3e7b475a9d9825.jpg"},{"url":"img\/social media\/bmai winner result.jpg"},{"url":"img\/social media\/christmas_1.jpg"},{"url":"img\/social media\/duo highway(rise to dhc) _1.jpg"},{"url":"img\/social media\/image2 PHONE.jpg"},{"url":"img\/social media\/ironbound bmai.jpg"},{"url":"img\/social media\/ironbound coros.jpg"},{"url":"img\/social media\/pace 2 berlin.jpg"},{"url":"img\/social media\/pace 4 Black crystal 2.jpg"},{"url":"img\/social media\/pace 4 Black crystal.jpg"},{"url":"img\/social media\/platform banner.jpg"},{"url":"img\/social media\/run-mudhan streak 100km.jpg"},{"url":"img\/social media\/the goat KJ.jpg"},{"url":"img\/social media\/we are hiring 2425-1.jpg"},{"url":"img\/social media\/we are hiring 2425-2.jpg"},{"url":"img\/social media\/we are hiring 2425-3.jpg"},{"url":"img\/social media\/winner announcement.jpg"}];
         const modal = document.getElementById('gallery-modal');
         const modalImg = document.getElementById('modal-img');
         const dockItems = document.querySelectorAll('.dock-item');
+
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+        function activateTab(tabName) {
+            tabButtons.forEach(button => button.classList.toggle('active', button.dataset.tab === tabName));
+            tabPanels.forEach(panel => panel.classList.toggle('hidden', panel.id !== `tab-${tabName}`));
+        }
+        tabButtons.forEach(button => button.addEventListener('click', () => activateTab(button.dataset.tab)));
+
         function openGallery(index) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; setGalleryImage(index); }
         function closeGallery() { modal.classList.remove('active'); document.body.style.overflow = ''; }
         function setGalleryImage(index) {
