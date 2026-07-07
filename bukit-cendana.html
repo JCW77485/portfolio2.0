@@ -32,7 +32,7 @@
         .dock-item img { width: 100%; height: 100%; object-fit: contain; }
         .dock-item.active { border-color: #0057ff; opacity: 1; transform: translateY(-4px); }
         .artifact-card { position: relative; border-radius: 1rem; overflow: hidden; background: rgba(0,0,0,0.03); cursor: pointer; }
-        .artifact-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .artifact-card img { width: 100%; height: auto; object-fit: contain; transition: transform 0.8s ease; display: block; }
         .artifact-card:hover img { transform: scale(1.05); }
         @media (max-width: 768px) { .header-floating { top: 1rem; gap: 1rem; padding: 0.4rem 0.4rem 0.4rem 1rem; } .gallery-dock { padding: 0.5rem; gap: 0.25rem; overflow-x: auto; justify-content: flex-start; } .dock-item { width: 36px; height: 36px; } }
     </style>
@@ -53,10 +53,11 @@
         <section class="space-y-8 md:space-y-12">
             <div class="space-y-4 reveal active">
                 <h2 class="text-brand_blue font-bold tracking-[0.3em] uppercase text-[10px] md:text-sm">PROCESS_LOG // v1.0</h2>
-                <h1 class="text-5xl md:text-8xl lg:text-[8vw] font-bold tracking-tighter leading-none">Event Schudule Poster</h1>
+                <h1 class="text-5xl md:text-8xl lg:text-[8vw] font-bold tracking-tighter leading-none">
+                    Bukit Cendana                </h1>
             </div>
-            <div class="rounded-xl overflow-hidden bg-black/5 reveal active shadow-lg max-h-[80vh] flex items-center justify-center">
-                <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/BUKIT CENDANA.jpg" alt="Cover" class="w-full h-auto object-contain max-h-[80vh]">
+            <div class="rounded-xl overflow-hidden bg-black/5 reveal active shadow-lg flex items-center justify-center">
+                <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/BUKIT CENDANA.jpg" alt="Cover" class="w-full h-auto">
             </div>
         </section>
 
@@ -76,18 +77,18 @@
                 <h2 class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] opacity-40">_Interactive_Gallery</h2>
                 <span class="text-[8px] md:text-xs font-bold opacity-20">STABLE_BUILD</span>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[150px] md:auto-rows-[250px]">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                                 <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(0)">
-                    <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/BUKIT CENDANA.jpg" alt="Artifact" loading="lazy">
+                    <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/BUKIT CENDANA.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
                 </div>
                                 <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(1)">
-                    <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/PAHANG.jpg" alt="Artifact" loading="lazy">
+                    <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/PAHANG.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
                 </div>
                                 <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(2)">
-                    <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/PENANG.jpg" alt="Artifact" loading="lazy">
+                    <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/PENANG.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
                 </div>
                                 <div class="artifact-card reveal sm:col-span-1 sm:row-span-1" onclick="openGallery(3)">
-                    <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/WeChat Image_20220617121242.jpg" alt="Artifact" loading="lazy">
+                    <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/WeChat Image_20220617121242.jpg" alt="Artifact" loading="lazy" class="w-full h-auto">
                 </div>
                             </div>
         </section>

@@ -26,7 +26,7 @@
         .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .img-container { position: relative; overflow: hidden; background: rgba(0,0,0,0.03); width: 100%; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1); }
+        .img-container img { width: 100%; height: auto; transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1); }
         .img-container:hover img { transform: scale(1.05); }
         .marquee-container { --gap: 2rem; --duration: 40s; display: flex; overflow: hidden; user-select: none; gap: var(--gap); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
         .marquee-content { flex-shrink: 0; display: flex; justify-content: space-around; min-width: 100%; gap: var(--gap); animation: marquee var(--duration) linear infinite; }
@@ -65,7 +65,7 @@
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 pt-4 md:pt-12">
                 <div class="lg:col-span-7">
-                    <div class="img-container rounded-sm shadow-sm reveal active aspect-video lg:aspect-[16/9]">
+                    <div class="img-container rounded-sm shadow-sm reveal active">
                         <img src="<?php echo htmlspecialchars($config['hero']['profile_image']); ?>" alt="Profile">
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                 <?php foreach ($config['projects'] as $index => $project): ?>
                 <a href="<?php echo htmlspecialchars($project['id']); ?>.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="<?php echo htmlspecialchars($project['cover_image']); ?>" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_<?php echo sprintf("%02d", $index + 1); ?></div>

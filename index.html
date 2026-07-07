@@ -25,7 +25,7 @@
         .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .img-container { position: relative; overflow: hidden; background: rgba(0,0,0,0.03); width: 100%; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1); }
+        .img-container img { width: 100%; height: auto; transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1); }
         .img-container:hover img { transform: scale(1.05); }
         .marquee-container { --gap: 2rem; --duration: 40s; display: flex; overflow: hidden; user-select: none; gap: var(--gap); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
         .marquee-content { flex-shrink: 0; display: flex; justify-content: space-around; min-width: 100%; gap: var(--gap); animation: marquee var(--duration) linear infinite; }
@@ -62,7 +62,7 @@
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 pt-4 md:pt-12">
                 <div class="lg:col-span-7">
-                    <div class="img-container rounded-sm shadow-sm reveal active aspect-video lg:aspect-[16/9]">
+                    <div class="img-container rounded-sm shadow-sm reveal active">
                         <img src="img/WhatsApp Image 2026-06-04 at 10.05.42 PM.jpeg" alt="Profile">
                     </div>
                 </div>
@@ -198,7 +198,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 <a href="bukit-cendana.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/Bukit Cendana/CENDANA&amp;PENANG&amp;PAHANG/BUKIT CENDANA.jpg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_01</div>
@@ -212,7 +212,7 @@
                 </a>
                                 <a href="kallang-wave-mall-website.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/Kallang Wave Mall Website/Thumbnail 455px (W) X 376px(H) (2).jpg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_02</div>
@@ -226,7 +226,7 @@
                 </a>
                                 <a href="website.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/Website/A- Slider/COROS.png" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_03</div>
@@ -240,7 +240,7 @@
                 </a>
                                 <a href="dealer-visual.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/dealer visual/WhatsApp Image 2026-05-27 at 1.23.28 PM (1).jpeg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_04</div>
@@ -254,7 +254,7 @@
                 </a>
                                 <a href="ecomm.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/ecomm/MAIN(1).jpg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_05</div>
@@ -268,7 +268,7 @@
                 </a>
                                 <a href="launching.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/launching/dealer-img (11).jpeg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_06</div>
@@ -282,7 +282,7 @@
                 </a>
                                 <a href="pace-4-jacob.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/pace 4 jacob/Function Carousel/Artboard 0.jpg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_07</div>
@@ -296,7 +296,7 @@
                 </a>
                                 <a href="printing.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/printing/vibrant-carpet-moss-ferns-covering-jungle-ground-lush.jpg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_08</div>
@@ -310,7 +310,7 @@
                 </a>
                                 <a href="product-desc.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/product desc/1.jpg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_09</div>
@@ -324,7 +324,7 @@
                 </a>
                                 <a href="retail-visual.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/retail visual/dealer-img (14).jpeg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_10</div>
@@ -338,7 +338,7 @@
                 </a>
                                 <a href="shopee-main-page-design.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/shopee main page design/Apex 2_0.jpg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_11</div>
@@ -352,7 +352,7 @@
                 </a>
                                 <a href="social-media.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/social media/0 result cover.jpg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_12</div>
@@ -366,7 +366,7 @@
                 </a>
                                 <a href="t-shirt.html" class="magic-card group reveal block">
                     <div class="magic-spotlight"></div>
-                    <div class="img-container aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4]">
+                    <div class="img-container">
                         <img src="img/t-shirt/001_1500.0 (1).jpg" alt="Project" loading="lazy">
                         <div class="absolute inset-0 bg-brand_blue/0 group-hover:bg-brand_blue/10 transition-colors duration-500"></div>
                         <div class="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold border border-black/5 uppercase tracking-widest">ID_13</div>
